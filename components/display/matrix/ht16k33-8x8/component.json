@@ -1,0 +1,58 @@
+{
+  "name": "ht16k33-8x8",
+  "name_zh": "HT16K33 8X8点阵模块",
+  "manufacturer": "Holtek",
+  "part_number": "HT16K33",
+  "category": "display/matrix",
+  "description": "HT16K33 8×8 LED 點陣驅動，I2C 地址 0x70（A0/A1/A2 全接 GND），最大 16×8 矩陣",
+  "interface": [
+    "I2C"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "SDA",
+      "function": "I2C 數據線",
+      "direction": "bidirectional"
+    },
+    {
+      "name": "SCL",
+      "function": "I2C 時鐘線",
+      "direction": "input"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "HT16K33.pdf",
+    "source": "mouser",
+    "url": "https://www.mouser.com/datasheet/2/198/DA00-HT16K33v120-1143516.pdf",
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/ht16k33_8x8.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

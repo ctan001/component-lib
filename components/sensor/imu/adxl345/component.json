@@ -1,0 +1,69 @@
+{
+  "name": "adxl345",
+  "name_zh": "ADXL345加速度传感器",
+  "manufacturer": "Analog Devices",
+  "part_number": "ADXL345",
+  "category": "sensor/imu",
+  "description": "ADXL345 三軸加速度計，支援 I2C/SPI，量程 ±2/4/8/16g，10-bit 解析度",
+  "interface": [
+    "I2C",
+    "SPI"
+  ],
+  "voltage": {
+    "min": 2.0,
+    "max": 3.6,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "SDA/SDI",
+      "function": "I2C SDA / SPI MOSI",
+      "direction": "bidirectional"
+    },
+    {
+      "name": "SCL/SCK",
+      "function": "I2C SCL / SPI SCK",
+      "direction": "input"
+    },
+    {
+      "name": "SDO",
+      "function": "SPI MISO / I2C地址選擇（GND=0x53, VCC=0x1D）",
+      "direction": "output"
+    },
+    {
+      "name": "CS",
+      "function": "SPI 片選（I2C 模式接 VCC）",
+      "direction": "input"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "ADXL345.pdf",
+    "source": "mouser",
+    "url": "https://www.mouser.com/datasheet/2/609/ADXL345-1544506.pdf",
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/adxl345.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

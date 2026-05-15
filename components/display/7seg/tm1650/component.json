@@ -1,0 +1,58 @@
+{
+  "name": "tm1650",
+  "name_zh": "TM1650四位数码管模块",
+  "manufacturer": "Titan Micro",
+  "part_number": "TM1650",
+  "category": "display/7seg",
+  "description": "TM1650 四位七段數碼管，I2C-like 協議，顯示地址 0x34-0x37，控制地址 0x24-0x27",
+  "interface": [
+    "I2C"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "SDA",
+      "function": "數據線（I2C-like）",
+      "direction": "bidirectional"
+    },
+    {
+      "name": "SCL",
+      "function": "時鐘線",
+      "direction": "input"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "TM1650.pdf",
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/tm1650.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

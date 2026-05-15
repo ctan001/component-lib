@@ -1,0 +1,53 @@
+{
+  "name": "tilt",
+  "name_zh": "倾斜模块",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "sensor/digital",
+  "description": "滾珠開關傾斜感應，傾斜導通時 S=LOW，LED 亮；直立時 S=HIGH（4.7K 上拉）",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "信號端",
+      "direction": "output"
+    }
+  ],
+  "logic": "active-low",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/tilt.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

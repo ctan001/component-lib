@@ -1,0 +1,53 @@
+{
+  "name": "buzzer-active",
+  "name_zh": "有源蜂鸣器",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "actuator",
+  "description": "有源蜂鳴器，S=HIGH 三極管導通蜂鳴，S=LOW 靜音（active-high）",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "信號端",
+      "direction": "output"
+    }
+  ],
+  "logic": "active-high",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/buzzer_active.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

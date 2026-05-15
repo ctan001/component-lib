@@ -1,0 +1,58 @@
+{
+  "name": "rgb-plugin",
+  "name_zh": "插件RGB",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "display/led",
+  "description": "直插式 RGB LED（共陰），R/G/B 三腳分別限流電阻控制，高電平亮起",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "R",
+      "function": "紅色陽極（含限流電阻）",
+      "direction": "input"
+    },
+    {
+      "name": "G",
+      "function": "綠色陽極（含限流電阻）",
+      "direction": "input"
+    },
+    {
+      "name": "B",
+      "function": "藍色陽極（含限流電阻）",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "共陰接地",
+      "direction": "input"
+    }
+  ],
+  "logic": "active-high",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/rgb_plugin.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

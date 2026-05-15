@@ -1,0 +1,53 @@
+{
+  "name": "hall",
+  "name_zh": "霍尔传感器",
+  "manufacturer": "unknown",
+  "part_number": "A3144",
+  "category": "sensor/digital",
+  "description": "A3144 線性霍爾元件，偵測到磁場時 S=LOW（open-collector），無磁場 S=HIGH",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "信號端",
+      "direction": "output"
+    }
+  ],
+  "logic": "active-low",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/hall.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "servo",
+  "name_zh": "伺服舵机",
+  "manufacturer": "unknown",
+  "part_number": "SG90",
+  "category": "actuator",
+  "description": "伺服舵機，PWM 50Hz（20ms 周期），脈寬 0.5ms-2.5ms 對應 0°-180°",
+  "interface": [
+    "PWM"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "PWM 信號端",
+      "direction": "input"
+    }
+  ],
+  "logic": "pwm",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/servo.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

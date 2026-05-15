@@ -1,0 +1,53 @@
+{
+  "name": "sk6812",
+  "name_zh": "SK6812 RGB模块",
+  "manufacturer": "unknown",
+  "part_number": "SK6812",
+  "category": "display/led",
+  "description": "SK6812 可定址 RGB LED，單線歸零碼協議（24-bit GRB），多顆串聯，PIO 實作",
+  "interface": [
+    "PIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "DIN",
+      "function": "串行數據輸入（單線）",
+      "direction": "input"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/sk6812.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

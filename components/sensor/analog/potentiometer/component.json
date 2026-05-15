@@ -1,0 +1,53 @@
+{
+  "name": "potentiometer",
+  "name_zh": "旋转电位器",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "sensor/analog",
+  "description": "旋轉電位器，輸出 0–VCC 類比電壓，對應 ADC 0–65535",
+  "interface": [
+    "ADC"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "信號端",
+      "direction": "output"
+    }
+  ],
+  "logic": "analog",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/potentiometer.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

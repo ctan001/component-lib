@@ -1,0 +1,53 @@
+{
+  "name": "capacitive-touch",
+  "name_zh": "电容触摸传感器",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "sensor/digital",
+  "description": "電容觸摸感應模組，觸摸時 S=HIGH，未觸摸 S=LOW",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "信號端",
+      "direction": "output"
+    }
+  ],
+  "logic": "active-high",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/capacitive_touch.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

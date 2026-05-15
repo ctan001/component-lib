@@ -1,0 +1,73 @@
+{
+  "name": "lcd-128x32-st7567a",
+  "name_zh": "LCD 128x32 DOT模块",
+  "manufacturer": "Sitronix",
+  "part_number": "ST7567A",
+  "category": "display/lcd",
+  "description": "128×32 像素 LCD，ST7567A 驅動晶片，SPI 介面，頁式定址模式",
+  "interface": [
+    "SPI"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "SCK",
+      "function": "SPI 時鐘",
+      "direction": "input"
+    },
+    {
+      "name": "SDA",
+      "function": "SPI MOSI 數據",
+      "direction": "input"
+    },
+    {
+      "name": "RS",
+      "function": "指令/數據選擇（LOW=指令，HIGH=數據）",
+      "direction": "input"
+    },
+    {
+      "name": "RST",
+      "function": "硬體重置（LOW=重置）",
+      "direction": "input"
+    },
+    {
+      "name": "CS",
+      "function": "SPI 片選（LOW=選中）",
+      "direction": "input"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "ST7567A.pdf",
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/lcd_128x32_st7567a.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

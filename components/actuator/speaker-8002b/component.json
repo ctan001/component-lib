@@ -1,0 +1,53 @@
+{
+  "name": "speaker-8002b",
+  "name_zh": "8002B功放喇叭模块",
+  "manufacturer": "unknown",
+  "part_number": "8002B",
+  "category": "actuator",
+  "description": "8002B 功放喇叭，小音頻信號放大約 8.5 倍，PWM 輸出不同頻率音調",
+  "interface": [
+    "PWM"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "IN",
+      "function": "音頻輸入（PWM 信號）",
+      "direction": "input"
+    }
+  ],
+  "logic": "pwm",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/speaker_8002b.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "pressure-film",
+  "name_zh": "薄膜压力传感器",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "sensor/analog",
+  "description": "薄膜壓力感應，壓力越大 ADC 值越小，類比輸出壓力強度",
+  "interface": [
+    "ADC"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "V",
+      "function": "電源 VCC",
+      "direction": "input"
+    },
+    {
+      "name": "G",
+      "function": "接地 GND",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "信號端（類比）",
+      "direction": "output"
+    }
+  ],
+  "logic": "analog",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/pressure_film.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

@@ -1,0 +1,63 @@
+{
+  "name": "rgb-3color",
+  "name_zh": "3色LED模块",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "display/led",
+  "description": "三色 LED 模組（紅/黃/綠），各腳高電平亮起對應顏色（active-high）",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "R",
+      "function": "紅色 LED 控制（HIGH=亮）",
+      "direction": "input"
+    },
+    {
+      "name": "Y",
+      "function": "黃色 LED 控制（HIGH=亮）",
+      "direction": "input"
+    },
+    {
+      "name": "G",
+      "function": "綠色 LED 控制（HIGH=亮）",
+      "direction": "input"
+    }
+  ],
+  "logic": "active-high",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/rgb_3color.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

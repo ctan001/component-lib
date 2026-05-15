@@ -1,0 +1,58 @@
+{
+  "name": "hc-sr04",
+  "name_zh": "超声波传感器",
+  "manufacturer": "unknown",
+  "part_number": "HC-SR04",
+  "category": "sensor/ultrasonic",
+  "description": "HC-SR04 超聲波測距，量程 2-400cm，精度 3mm，TRIG 拉高 10μs 觸發，ECHO 高電平持續時間正比距離",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 4.5,
+    "max": 5.5,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "TRIG",
+      "function": "觸發端（輸出 10μs 高電平）",
+      "direction": "input"
+    },
+    {
+      "name": "ECHO",
+      "function": "回波端（高電平持續時間 = 往返時間）",
+      "direction": "output"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/hc_sr04.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

@@ -1,0 +1,447 @@
+[
+  {
+    "name": "buzzer-active",
+    "name_zh": "有源蜂鸣器",
+    "category": "actuator",
+    "path": "components/actuator/buzzer-active",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/buzzer_active.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "motor-130",
+    "name_zh": "130电机模块",
+    "category": "actuator",
+    "path": "components/actuator/motor-130",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/motor_130.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "servo",
+    "name_zh": "伺服舵机",
+    "category": "actuator",
+    "path": "components/actuator/servo",
+    "interface": [
+      "PWM"
+    ],
+    "driver_micropython": "drivers/micropython/servo.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "speaker-8002b",
+    "name_zh": "8002B功放喇叭模块",
+    "category": "actuator",
+    "path": "components/actuator/speaker-8002b",
+    "interface": [
+      "PWM"
+    ],
+    "driver_micropython": "drivers/micropython/speaker_8002b.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "tm1650",
+    "name_zh": "TM1650四位数码管模块",
+    "category": "display/7seg",
+    "path": "components/display/7seg/tm1650",
+    "interface": [
+      "I2C"
+    ],
+    "driver_micropython": "drivers/micropython/tm1650.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "lcd-128x32-st7567a",
+    "name_zh": "LCD 128x32 DOT模块",
+    "category": "display/lcd",
+    "path": "components/display/lcd/lcd-128x32-st7567a",
+    "interface": [
+      "SPI"
+    ],
+    "driver_micropython": "drivers/micropython/lcd_128x32_st7567a.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "rgb-3color",
+    "name_zh": "3色LED模块",
+    "category": "display/led",
+    "path": "components/display/led/rgb-3color",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/rgb_3color.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "rgb-plugin",
+    "name_zh": "插件RGB",
+    "category": "display/led",
+    "path": "components/display/led/rgb-plugin",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/rgb_plugin.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "sk6812",
+    "name_zh": "SK6812 RGB模块",
+    "category": "display/led",
+    "path": "components/display/led/sk6812",
+    "interface": [
+      "PIO"
+    ],
+    "driver_micropython": "drivers/micropython/sk6812.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "ht16k33-8x8",
+    "name_zh": "HT16K33 8X8点阵模块",
+    "category": "display/matrix",
+    "path": "components/display/matrix/ht16k33-8x8",
+    "interface": [
+      "I2C"
+    ],
+    "driver_micropython": "drivers/micropython/ht16k33_8x8.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "adc-button-5way",
+    "name_zh": "五路AD按键",
+    "category": "input",
+    "path": "components/input/adc-button-5way",
+    "interface": [
+      "ADC"
+    ],
+    "driver_micropython": "drivers/micropython/adc_button_5way.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "ir-receiver",
+    "name_zh": "红外遥控接收器",
+    "category": "input",
+    "path": "components/input/ir-receiver",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/ir_receiver.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "joystick",
+    "name_zh": "遥感模块",
+    "category": "input",
+    "path": "components/input/joystick",
+    "interface": [
+      "ADC",
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/joystick.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "rotary-encoder",
+    "name_zh": "旋转编码器",
+    "category": "input",
+    "path": "components/input/rotary-encoder",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/rotary_encoder.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "mfrc522",
+    "name_zh": "RFID刷卡模块",
+    "category": "module/rfid",
+    "path": "components/module/rfid/mfrc522",
+    "interface": [
+      "SPI"
+    ],
+    "driver_micropython": "drivers/micropython/mfrc522.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "ds1307",
+    "name_zh": "实时时钟DS1307",
+    "category": "module/rtc",
+    "path": "components/module/rtc/ds1307",
+    "interface": [
+      "I2C"
+    ],
+    "driver_micropython": "drivers/micropython/ds1307.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "ds18b20",
+    "name_zh": "DS18B20温度传感器",
+    "category": "sensor/1wire",
+    "path": "components/sensor/1wire/ds18b20",
+    "interface": [
+      "1-Wire"
+    ],
+    "driver_micropython": "drivers/micropython/ds18b20.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "ntc-temperature",
+    "name_zh": "模拟温度传感器",
+    "category": "sensor/analog",
+    "path": "components/sensor/analog/ntc-temperature",
+    "interface": [
+      "ADC"
+    ],
+    "driver_micropython": "drivers/micropython/ntc_temperature.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "photoresistor",
+    "name_zh": "光敏电阻传感器",
+    "category": "sensor/analog",
+    "path": "components/sensor/analog/photoresistor",
+    "interface": [
+      "ADC"
+    ],
+    "driver_micropython": "drivers/micropython/photoresistor.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "potentiometer",
+    "name_zh": "旋转电位器",
+    "category": "sensor/analog",
+    "path": "components/sensor/analog/potentiometer",
+    "interface": [
+      "ADC"
+    ],
+    "driver_micropython": "drivers/micropython/potentiometer.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "pressure-film",
+    "name_zh": "薄膜压力传感器",
+    "category": "sensor/analog",
+    "path": "components/sensor/analog/pressure-film",
+    "interface": [
+      "ADC"
+    ],
+    "driver_micropython": "drivers/micropython/pressure_film.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "sound",
+    "name_zh": "声音传感器",
+    "category": "sensor/analog",
+    "path": "components/sensor/analog/sound",
+    "interface": [
+      "ADC"
+    ],
+    "driver_micropython": "drivers/micropython/sound.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "uv",
+    "name_zh": "太阳光紫外线传感器",
+    "category": "sensor/analog",
+    "path": "components/sensor/analog/uv",
+    "interface": [
+      "ADC"
+    ],
+    "driver_micropython": "drivers/micropython/uv.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "water-steam",
+    "name_zh": "水滴水蒸气传感器",
+    "category": "sensor/analog",
+    "path": "components/sensor/analog/water-steam",
+    "interface": [
+      "ADC"
+    ],
+    "driver_micropython": "drivers/micropython/water_steam.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "button",
+    "name_zh": "按键",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/button",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/button.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "capacitive-touch",
+    "name_zh": "电容触摸传感器",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/capacitive-touch",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/capacitive_touch.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "collision",
+    "name_zh": "碰撞传感器",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/collision",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/collision.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "hall",
+    "name_zh": "霍尔传感器",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/hall",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/hall.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "line-following",
+    "name_zh": "巡线传感器",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/line-following",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/line_following.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "obstacle-avoidance",
+    "name_zh": "避障传感器",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/obstacle-avoidance",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/obstacle_avoidance.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "photointerrupter",
+    "name_zh": "光折断模块",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/photointerrupter",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/photointerrupter.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "pir",
+    "name_zh": "人体红外热传感器",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/pir",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/pir.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "reed-switch",
+    "name_zh": "干簧管模块",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/reed-switch",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/reed_switch.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "tilt",
+    "name_zh": "倾斜模块",
+    "category": "sensor/digital",
+    "path": "components/sensor/digital/tilt",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/tilt.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "flame",
+    "name_zh": "火焰传感器",
+    "category": "sensor/dual",
+    "path": "components/sensor/dual/flame",
+    "interface": [
+      "ADC",
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/flame.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "mq2-smoke",
+    "name_zh": "MQ-2烟雾传感器",
+    "category": "sensor/dual",
+    "path": "components/sensor/dual/mq2-smoke",
+    "interface": [
+      "ADC",
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/mq2_smoke.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "mq3-alcohol",
+    "name_zh": "MQ-3酒精传感器",
+    "category": "sensor/dual",
+    "path": "components/sensor/dual/mq3-alcohol",
+    "interface": [
+      "ADC",
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/mq3_alcohol.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "xht11",
+    "name_zh": "XHT11温湿度传感器",
+    "category": "sensor/humidity",
+    "path": "components/sensor/humidity/xht11",
+    "interface": [
+      "DHT"
+    ],
+    "driver_micropython": "drivers/micropython/xht11.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "adxl345",
+    "name_zh": "ADXL345加速度传感器",
+    "category": "sensor/imu",
+    "path": "components/sensor/imu/adxl345",
+    "interface": [
+      "I2C",
+      "SPI"
+    ],
+    "driver_micropython": "drivers/micropython/adxl345.py",
+    "verification_status": "pending"
+  },
+  {
+    "name": "hc-sr04",
+    "name_zh": "超声波传感器",
+    "category": "sensor/ultrasonic",
+    "path": "components/sensor/ultrasonic/hc-sr04",
+    "interface": [
+      "GPIO"
+    ],
+    "driver_micropython": "drivers/micropython/hc_sr04.py",
+    "verification_status": "pending"
+  }
+]

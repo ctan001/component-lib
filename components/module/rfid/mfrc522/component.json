@@ -1,0 +1,73 @@
+{
+  "name": "mfrc522",
+  "name_zh": "RFID刷卡模块",
+  "manufacturer": "NXP Semiconductors",
+  "part_number": "MFRC522",
+  "category": "module/rfid",
+  "description": "MFRC522 RFID 讀卡器，SPI 介面，13.56MHz，支援 MIFARE 1K/4K，讀寫 UID 及資料",
+  "interface": [
+    "SPI"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 3.3,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "SCK",
+      "function": "SPI 時鐘",
+      "direction": "input"
+    },
+    {
+      "name": "MOSI",
+      "function": "SPI 主機到從機",
+      "direction": "input"
+    },
+    {
+      "name": "MISO",
+      "function": "SPI 從機到主機",
+      "direction": "output"
+    },
+    {
+      "name": "SDA",
+      "function": "SPI 片選（CS）",
+      "direction": "input"
+    },
+    {
+      "name": "RST",
+      "function": "硬體重置（LOW=重置）",
+      "direction": "input"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "MFRC522.pdf",
+    "source": "mouser",
+    "url": "https://www.mouser.com/datasheet/2/302/MF1S50YYX_V1-1278395.pdf",
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/mfrc522.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

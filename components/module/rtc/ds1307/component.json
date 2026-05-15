@@ -1,0 +1,63 @@
+{
+  "name": "ds1307",
+  "name_zh": "实时时钟DS1307",
+  "manufacturer": "Maxim Integrated",
+  "part_number": "DS1307",
+  "category": "module/rtc",
+  "description": "DS1307 I2C 實時時鐘（RTC），地址 0x68，BCD 格式，含電池備份，精度 ±2ppm",
+  "interface": [
+    "I2C"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "SDA",
+      "function": "I2C 數據線",
+      "direction": "bidirectional"
+    },
+    {
+      "name": "SCL",
+      "function": "I2C 時鐘線",
+      "direction": "input"
+    },
+    {
+      "name": "SQW",
+      "function": "方波輸出（可選）",
+      "direction": "output"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "DS1307.pdf",
+    "source": "mouser",
+    "url": "https://www.mouser.com/datasheet/2/256/DS1307-1203167.pdf",
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/ds1307.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

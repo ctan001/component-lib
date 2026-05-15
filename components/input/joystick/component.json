@@ -1,0 +1,64 @@
+{
+  "name": "joystick",
+  "name_zh": "遥感模块",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "input",
+  "description": "搖桿模組，X/Y 軸各一個 ADC 電位器，Z 軸按鈕（按下=HIGH，與一般按鍵相反）",
+  "interface": [
+    "ADC",
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "X",
+      "function": "X 軸類比輸出",
+      "direction": "output"
+    },
+    {
+      "name": "Y",
+      "function": "Y 軸類比輸出",
+      "direction": "output"
+    },
+    {
+      "name": "B",
+      "function": "Z 軸按鈕（按下=HIGH, active-high）",
+      "direction": "output"
+    }
+  ],
+  "logic": "analog",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/joystick.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

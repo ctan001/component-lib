@@ -1,0 +1,53 @@
+{
+  "name": "ds18b20",
+  "name_zh": "DS18B20温度传感器",
+  "manufacturer": "Maxim Integrated",
+  "part_number": "DS18B20",
+  "category": "sensor/1wire",
+  "description": "DS18B20 數位溫度感應，1-Wire 協議，精度 ±0.5°C，測量範圍 -55°C~+125°C",
+  "interface": [
+    "1-Wire"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "DQ",
+      "function": "單線數據（需 4.7K 上拉）",
+      "direction": "bidirectional"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "DS18B20.pdf",
+    "source": "mouser",
+    "url": "https://www.mouser.com/datasheet/2/256/DS18B20-1203094.pdf",
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/ds18b20.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

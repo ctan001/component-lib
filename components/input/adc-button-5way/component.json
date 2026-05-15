@@ -1,0 +1,53 @@
+{
+  "name": "adc-button-5way",
+  "name_zh": "五路AD按键",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "input",
+  "description": "五個按鍵共用一個 ADC 腳，電阻分壓產生不同電壓，16-bit ADC 區分各鍵",
+  "interface": [
+    "ADC"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "信號端",
+      "direction": "output"
+    }
+  ],
+  "logic": "analog",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/adc_button_5way.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

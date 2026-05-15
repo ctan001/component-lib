@@ -1,0 +1,58 @@
+{
+  "name": "motor-130",
+  "name_zh": "130电机模块",
+  "manufacturer": "unknown",
+  "part_number": "HR1124S",
+  "category": "actuator",
+  "description": "130 DC 馬達 + HR1124S H 橋驅動，IN+=HIGH/IN-=LOW 正轉，反之反轉，兩者同 LOW 滑行停止",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "IN+",
+      "function": "馬達控制端正",
+      "direction": "input"
+    },
+    {
+      "name": "IN-",
+      "function": "馬達控制端負",
+      "direction": "input"
+    }
+  ],
+  "logic": "active-high",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/motor_130.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

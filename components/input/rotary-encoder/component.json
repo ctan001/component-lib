@@ -1,0 +1,63 @@
+{
+  "name": "rotary-encoder",
+  "name_zh": "旋转编码器",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "input",
+  "description": "增量式旋轉編碼器，20 脈衝/轉，CLK 下降沿時 DT=HIGH→順時針，DT=LOW→逆時針",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "CLK",
+      "function": "時鐘信號",
+      "direction": "output"
+    },
+    {
+      "name": "DT",
+      "function": "方向信號",
+      "direction": "output"
+    },
+    {
+      "name": "SW",
+      "function": "按鈕（active-low）",
+      "direction": "output"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/rotary_encoder.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

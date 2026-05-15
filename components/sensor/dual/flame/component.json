@@ -1,0 +1,59 @@
+{
+  "name": "flame",
+  "name_zh": "火焰传感器",
+  "manufacturer": "unknown",
+  "part_number": "generic",
+  "category": "sensor/dual",
+  "description": "偵測 700–1000nm 紅外光（最佳 880nm），D0 active-low 數位警報，A0 類比強度（越亮值越小）",
+  "interface": [
+    "ADC",
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "A0",
+      "function": "類比信號端（外界IR越強值越小）",
+      "direction": "output"
+    },
+    {
+      "name": "D0",
+      "function": "數位信號端（偵測到火焰時LOW）",
+      "direction": "output"
+    }
+  ],
+  "logic": "active-low",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/flame.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

@@ -1,0 +1,59 @@
+{
+  "name": "mq3-alcohol",
+  "name_zh": "MQ-3酒精传感器",
+  "manufacturer": "unknown",
+  "part_number": "MQ-3",
+  "category": "sensor/dual",
+  "description": "MQ-3 酒精蒸汽感應，A0 類比濃度（越濃越大），D0 active-low 閾值警報（電位器調整）",
+  "interface": [
+    "ADC",
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "A0",
+      "function": "類比信號端（酒精濃度越高值越大）",
+      "direction": "output"
+    },
+    {
+      "name": "D0",
+      "function": "數位信號端（超過閾值時LOW）",
+      "direction": "output"
+    }
+  ],
+  "logic": "active-low",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/mq3_alcohol.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "xht11",
+  "name_zh": "XHT11温湿度传感器",
+  "manufacturer": "XHOSSEM",
+  "part_number": "XHT11",
+  "category": "sensor/humidity",
+  "description": "XHT11 數位溫濕度感應（DHT11 相容），單線協議，溫度精度 ±2°C，濕度精度 ±5%RH",
+  "interface": [
+    "DHT"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "單線數據（DHT 協議）",
+      "direction": "bidirectional"
+    }
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "XHT11.pdf",
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/xht11.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}

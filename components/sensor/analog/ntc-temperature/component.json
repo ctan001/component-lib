@@ -1,0 +1,53 @@
+{
+  "name": "ntc-temperature",
+  "name_zh": "模拟温度传感器",
+  "manufacturer": "unknown",
+  "part_number": "NTC-MF52AT",
+  "category": "sensor/analog",
+  "description": "NTC-MF52AT 熱敏電阻（10kΩ@25°C，B=3950），串聯 10kΩ 分壓，Steinhart-Hart 轉換溫度",
+  "interface": [
+    "ADC"
+  ],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "電源 3.3V/5V",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "S",
+      "function": "信號端",
+      "direction": "output"
+    }
+  ],
+  "logic": "analog",
+  "datasheet": {
+    "filename": null,
+    "source": null,
+    "url": null,
+    "downloaded": false
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/ntc_temperature.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-14",
+  "updated": "2026-05-14"
+}
