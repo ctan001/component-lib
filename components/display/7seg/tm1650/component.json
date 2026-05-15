@@ -38,9 +38,9 @@
   "logic": "protocol",
   "datasheet": {
     "filename": "TM1650.pdf",
-    "source": null,
+    "source": "manufacturer",
     "url": null,
-    "downloaded": false
+    "downloaded": true
   },
   "drivers": {
     "micropython": "drivers/micropython/tm1650.py",

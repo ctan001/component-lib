@@ -33,9 +33,9 @@
   "logic": "protocol",
   "datasheet": {
     "filename": "XHT11.pdf",
-    "source": null,
+    "source": "manufacturer",
     "url": null,
-    "downloaded": false
+    "downloaded": true
   },
   "drivers": {
     "micropython": "drivers/micropython/xht11.py",

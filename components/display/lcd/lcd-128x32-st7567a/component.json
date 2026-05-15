@@ -53,9 +53,9 @@
   "logic": "protocol",
   "datasheet": {
     "filename": "ST7567A.pdf",
-    "source": null,
+    "source": "manufacturer",
     "url": null,
-    "downloaded": false
+    "downloaded": true
   },
   "drivers": {
     "micropython": "drivers/micropython/lcd_128x32_st7567a.py",
