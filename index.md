@@ -10,7 +10,7 @@
 | [servo](components/actuator/servo/) | 伺服舵机 | actuator | PWM | ✅ | ⏳ |
 | [speaker-8002b](components/actuator/speaker-8002b/) | 8002B功放喇叭模块 | actuator | PWM | ✅ | ⏳ |
 | [tm1650](components/display/7seg/tm1650/) | TM1650四位数码管模块 | display/7seg | I2C | ✅ | ⏳ |
-| [lcd-128x32-st7567a](components/display/lcd/lcd-128x32-st7567a/) | LCD 128x32 DOT模块 | display/lcd | SPI | ✅ | ⏳ |
+| [lcd-128x32-st7567a](components/display/lcd/lcd-128x32-st7567a/) | LCD 128x32 DOT模块 | display/lcd | I2C | ✅ | ✅ |
 | [rgb-3color](components/display/led/rgb-3color/) | 3色LED模块 | display/led | GPIO | ✅ | ⏳ |
 | [rgb-plugin](components/display/led/rgb-plugin/) | 插件RGB | display/led | GPIO | ✅ | ⏳ |
 | [sk6812](components/display/led/sk6812/) | SK6812 RGB模块 | display/led | PIO | ✅ | ⏳ |

@@ -6,7 +6,7 @@
   "category": "display/lcd",
   "description": "128×32 像素 LCD，ST7567A 驅動晶片，SPI 介面，頁式定址模式",
   "interface": [
-    "SPI"
+    "I2C"
   ],
   "voltage": {
     "min": 3.3,
@@ -15,38 +15,23 @@
   },
   "pins": [
     {
-      "name": "VCC",
-      "function": "電源 3.3V/5V",
+      "name": "V",
+      "function": "電源 3.3V",
       "direction": "input"
     },
     {
-      "name": "GND",
+      "name": "G",
       "function": "接地",
       "direction": "input"
     },
     {
-      "name": "SCK",
-      "function": "SPI 時鐘",
-      "direction": "input"
-    },
-    {
       "name": "SDA",
-      "function": "SPI MOSI 數據",
+      "function": "I2C 數據",
       "direction": "input"
     },
     {
-      "name": "RS",
-      "function": "指令/數據選擇（LOW=指令，HIGH=數據）",
-      "direction": "input"
-    },
-    {
-      "name": "RST",
-      "function": "硬體重置（LOW=重置）",
-      "direction": "input"
-    },
-    {
-      "name": "CS",
-      "function": "SPI 片選（LOW=選中）",
+      "name": "SCL",
+      "function": "I2C 時鐘",
       "direction": "input"
     }
   ],
@@ -63,11 +48,11 @@
     "arduino": null
   },
   "verification": {
-    "status": "pending",
-    "platform": null,
-    "date": null,
-    "notes": ""
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-05-15",
+    "notes": "I2C addr=0x3F (SA0=SA1=1). Hardware I2C fails with EIO; SoftI2C required. SDA=GP4, SCL=GP5, V=3.3V."
   },
   "added": "2026-05-14",
-  "updated": "2026-05-14"
+  "updated": "2026-05-15"
 }
