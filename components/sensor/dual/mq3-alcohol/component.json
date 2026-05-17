@@ -38,10 +38,10 @@
   ],
   "logic": "active-low",
   "datasheet": {
-    "filename": null,
-    "source": null,
-    "url": null,
-    "downloaded": false
+    "filename": "MQ-3.pdf",
+    "source": "HANWEI Electronics",
+    "url": "http://www.hwsensor.com",
+    "downloaded": true
   },
   "drivers": {
     "micropython": "drivers/micropython/mq3_alcohol.py",
@@ -49,11 +49,11 @@
     "arduino": null
   },
   "verification": {
-    "status": "pending",
-    "platform": null,
-    "date": null,
-    "notes": ""
+    "status": "verified",
+    "platform": "YD-RP2040 (MicroPython v1.28)",
+    "date": "2026-05-16",
+    "notes": "ADC_VREF 需手動跳接到 3V3（YD-RP2040 預設 floating）。清潔空氣 ~0.034mg/L CLEAN，靠近酒精升至 TRACE/WARN，移開後恢復正常。"
   },
   "added": "2026-05-14",
-  "updated": "2026-05-14"
+  "updated": "2026-05-16"
 }

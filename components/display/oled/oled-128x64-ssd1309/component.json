@@ -1,0 +1,37 @@
+{
+  "name": "oled-128x64-ssd1309",
+  "name_zh": "2.42\" OLED 128x64 顯示模組",
+  "manufacturer": "HiLetgo",
+  "part_number": "SSD1309",
+  "category": "display/oled",
+  "description": "2.42 吋 128×64 像素 OLED，SSD1309 驅動晶片，I2C 介面，白/藍/黃綠可選",
+  "interface": ["I2C"],
+  "voltage": {"min": 3.0, "max": 5.0, "unit": "V"},
+  "pins": [
+    {"name": "GND", "function": "接地",        "direction": "input"},
+    {"name": "VDD", "function": "電源 3V–5V",  "direction": "input"},
+    {"name": "SCL", "function": "I2C 時鐘",    "direction": "input"},
+    {"name": "SDA", "function": "I2C 數據",    "direction": "input"}
+  ],
+  "logic": "protocol",
+  "notes": "I2C 地址預設 0x3C（SA0=0）或 0x3D（SA0=1）。SSD1309 升壓指令與 SSD1306 不同（0xAD,0x8B vs 0x8D,0x14），直接使用 ssd1306 函式庫會出現垂直條紋；必須使用本 driver 的 init_display() 覆蓋版。",
+  "datasheet": {
+    "filename": "SSD1309.pdf",
+    "source": "other",
+    "url": null,
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/oled_ssd1309.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-05-17",
+    "notes": "SoftI2C, SDA=GP4, SCL=GP5, VDD=3.3V. ssd1306 installed via mip. init_display() overridden with SSD1309-specific sequence (0xAD,0x8B DC-DC); ssd1306 default 0x8D,0x14 causes vertical stripe artifacts. Display clear, brightness confirmed ok."
+  },
+  "added": "2026-05-17",
+  "updated": "2026-05-17"
+}

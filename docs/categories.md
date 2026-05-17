@@ -15,5 +15,6 @@
 | `display/7seg` | 七段數碼管 |
 | `display/matrix` | 點陣顯示 |
 | `display/lcd` | LCD 液晶顯示 |
+| `display/oled` | OLED 有機電激發光顯示 |
 | `module/rtc` | 實時時鐘 |
 | `module/rfid` | RFID 讀卡器 |

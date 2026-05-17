@@ -1,0 +1,41 @@
+{
+  "name": "lcd-2004-i2c",
+  "name_zh": "I2C 2004 LCD 字元顯示模組",
+  "manufacturer": "Xiamen Ocular (LCD panel) + NXP (PCF8574A backpack)",
+  "part_number": "GDM2004D-FL-YBW + PCF8574AT",
+  "category": "display/lcd",
+  "description": "20×4 字元 LCD，HD44780 相容控制器，PCF8574A I2C 背包轉接，黃綠色背光",
+  "interface": ["I2C"],
+  "voltage": {"min": 5.0, "max": 5.0, "unit": "V"},
+  "pins": [
+    {"name": "GND", "function": "接地",        "direction": "input"},
+    {"name": "VCC", "function": "電源 5V",     "direction": "input"},
+    {"name": "SDA", "function": "I2C 數據",    "direction": "bidir"},
+    {"name": "SCL", "function": "I2C 時鐘",    "direction": "input"}
+  ],
+  "logic": "protocol",
+  "i2c_address": {
+    "default": "0x27",
+    "range": "0x20–0x27",
+    "note": "實測 PCF8574T（A0-A2 全 open）→ 0x27；PCF8574AT 版本預設 0x3F"
+  },
+  "datasheet": {
+    "filename": "I2C_2004_LCD.pdf",
+    "source": "other",
+    "url": null,
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/lcd_2004_i2c.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-05-16",
+    "notes": "I2C addr=0x27 (PCF8574T). SDA=GP4, SCL=GP5, VCC=5V. Display OK."
+  },
+  "added": "2026-05-16",
+  "updated": "2026-05-16 (verified)"
+}
