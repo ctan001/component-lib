@@ -31,4 +31,6 @@ XHT11 數位溫濕度感應（DHT11 相容），單線協議，溫度精度 ±2�
 
 ## 驗證狀態
 
-⏳ pending
+✅ verified — 2026-05-17，micropython-pico，S=GP14 / V=3.3V / G=GND
+
+T=26–27°C，H=20–60%RH 正常讀取。`example_oled.py` 搭配 SSD1309 OLED 顯示確認正常。

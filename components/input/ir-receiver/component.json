@@ -43,11 +43,11 @@
     "arduino": null
   },
   "verification": {
-    "status": "pending",
-    "platform": null,
-    "date": null,
-    "notes": ""
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-05-17",
+    "notes": "S=GP15, V=3.3V, G=GND. NEC protocol, address=0x00. Key map scanned live. OLED display confirmed via example_oled.py."
   },
   "added": "2026-05-14",
-  "updated": "2026-05-14"
+  "updated": "2026-05-17"
 }

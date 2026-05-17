@@ -1,8 +1,8 @@
 from ir_receiver import IRReceiver
 import time
 
-# 信號端 S 接 GPIO14，S 端已有 4.7K 上拉電阻
-ir = IRReceiver(14)
+# 信號端 S 接 GP15，S 端已有 4.7K 上拉電阻
+ir = IRReceiver(15)
 
 print("等待 IR 遙控器信號，Ctrl+C 停止...")
 while True:
