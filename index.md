@@ -1,7 +1,7 @@
 # component-lib 元件索引
 
 > 更新時間：2026-05-19  
-> 元件總數：42
+> 元件總數：43
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
 |:--|:--|:--|:--|:--|:--|
@@ -14,6 +14,7 @@
 | [rgb-3color](components/display/led/rgb-3color/) | 3色LED模块 | display/led | GPIO | ✅ | ⏳ |
 | [rgb-plugin](components/display/led/rgb-plugin/) | 插件RGB | display/led | GPIO | ✅ | ⏳ |
 | [sk6812](components/display/led/sk6812/) | SK6812 RGB模块 | display/led | PIO | ✅ | ⏳ |
+| [oled-128x64-ssd1309](components/display/oled/oled-128x64-ssd1309/) | 2.42" OLED 128x64 顯示模組 | display/oled | I2C | ✅ | ✅ |
 | [ht16k33-8x8](components/display/matrix/ht16k33-8x8/) | HT16K33 8X8点阵模块 | display/matrix | I2C | ✅ | ⏳ |
 | [adc-button-5way](components/input/adc-button-5way/) | 五路AD按键 | input | ADC | ✅ | ⏳ |
 | [ir-receiver](components/input/ir-receiver/) | 红外遥控接收器 | input | GPIO | ✅ | ⏳ |
