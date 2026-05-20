@@ -32,13 +32,17 @@ HEIGHT   = 64
 class OLED(ssd1306.SSD1306_I2C):
     def __init__(self, sda: int, scl: int, addr: int = I2C_ADDR,
                  width: int = WIDTH, height: int = HEIGHT):
+        import time as _t
         i2c = SoftI2C(sda=Pin(sda), scl=Pin(scl))
+        _t.sleep_ms(100)  # wait for VDD to stabilize on cold boot
         super().__init__(width, height, i2c, addr=addr)
 
     def init_display(self):
         for cmd in (
             0xAE,                    # display off
             0x20, 0x00,              # horizontal addressing mode
+            0x21, 0x00, 0x7F,        # column address: 0-127
+            0x22, 0x00, 0x07,        # page address: 0-7
             0x40,                    # display start line = 0
             0xA1,                    # seg remap: col 127 → SEG0
             0xA8, self.height - 1,   # multiplex ratio (63 for 64-row)
@@ -57,3 +61,10 @@ class OLED(ssd1306.SSD1306_I2C):
             self.write_cmd(cmd)
         self.fill(0)
         self.show()
+
+    def show(self):
+        # Re-assert horizontal mode before every frame — guards against
+        # the SSD1309 reverting to page-mode on cold boot or power glitches.
+        self.write_cmd(0x20)
+        self.write_cmd(0x00)
+        super().show()
