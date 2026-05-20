@@ -12,7 +12,7 @@ ENS160 + AHT21 + SSD1309 OLED 空氣品質監測
 """
 
 import time
-from machine import Pin, SoftI2C
+from machine import Pin, I2C
 from aht21 import AHT21
 from ens160 import ENS160
 from oled_ssd1309 import OLED
@@ -23,11 +23,11 @@ SENSOR_SDA = 6
 SENSOR_SCL = 7
 READ_INTERVAL = 2000  # ms
 
-# OLED 獨立 I2C bus（GP4/GP5）
+# OLED: 硬體 I2C0（GP4/GP5）
 oled = OLED(sda=OLED_SDA, scl=OLED_SCL)
 
-# 感應器獨立 I2C bus（GP6/GP7）
-i2c = SoftI2C(sda=Pin(SENSOR_SDA), scl=Pin(SENSOR_SCL))
+# 感應器: 硬體 I2C1（GP6/GP7）
+i2c = I2C(1, sda=Pin(SENSOR_SDA), scl=Pin(SENSOR_SCL), freq=400_000)
 aht = AHT21(i2c)
 ens = ENS160(i2c)
 
