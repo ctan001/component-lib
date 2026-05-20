@@ -1,0 +1,43 @@
+{
+  "name": "ens160",
+  "name_zh": "ENS160 數位空氣品質感應器",
+  "manufacturer": "ScioSense",
+  "part_number": "ENS160",
+  "category": "sensor/gas",
+  "description": "ENS160 I2C 空氣品質感應器，輸出 AQI(1-5)、TVOC(ppb)、eCO2(ppm)，支援溫濕度補償",
+  "interface": ["I2C"],
+  "i2c_address": "0x52 (ADDR=GND) / 0x53 (ADDR=VDD, ENS160+AHT21 combo)",
+  "voltage": {
+    "min": 1.71,
+    "max": 1.98,
+    "unit": "V",
+    "note": "模組有板載穩壓，VIN 接 5V 或 3.3V"
+  },
+  "pins": [
+    { "name": "VIN", "function": "模組電源 5V（板載穩壓）", "direction": "input" },
+    { "name": "GND", "function": "接地",                   "direction": "input" },
+    { "name": "SCL", "function": "I2C 時脈",               "direction": "input" },
+    { "name": "SDA", "function": "I2C 資料",               "direction": "bidirectional" },
+    { "name": "ADDR","function": "地址選擇 GND=0x52 / VDD=0x53", "direction": "input" }
+  ],
+  "logic": "i2c",
+  "datasheet": {
+    "filename": "ENS160-Datasheet.pdf",
+    "source": "manufacturer",
+    "url": null,
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/ens160.py",
+    "circuitpython": null,
+    "arduino": "ScioSense_ENS160"
+  },
+  "verification": {
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-05-19",
+    "notes": "VIN=5V(VBUS), SDA=GP6, SCL=GP7, addr=0x53。AQI=1, TVOC=0~16ppb(暖機中), eCO2=400ppm 基準值。OLED 顯示正常（分開 I2C bus GP4/GP5）。"
+  },
+  "added": "2026-05-19",
+  "updated": "2026-05-19"
+}

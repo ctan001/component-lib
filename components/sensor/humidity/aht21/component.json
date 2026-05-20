@@ -1,0 +1,41 @@
+{
+  "name": "aht21",
+  "name_zh": "AHT21 溫濕度感應器",
+  "manufacturer": "ASAIR (Aosong Electronics)",
+  "part_number": "AHT21",
+  "category": "sensor/humidity",
+  "description": "AHT21 I2C 溫濕度感應器，溫度精度 ±0.3°C，濕度精度 ±2%RH，SMD 3×3mm 封裝",
+  "interface": ["I2C"],
+  "i2c_address": "0x38",
+  "voltage": {
+    "min": 2.2,
+    "max": 5.5,
+    "unit": "V"
+  },
+  "pins": [
+    { "name": "VDD", "function": "電源 2.2~5.5V", "direction": "input" },
+    { "name": "GND", "function": "接地",           "direction": "input" },
+    { "name": "SCL", "function": "I2C 時脈",        "direction": "input" },
+    { "name": "SDA", "function": "I2C 資料",        "direction": "bidirectional" }
+  ],
+  "logic": "i2c",
+  "datasheet": {
+    "filename": "AHT21-Datasheet.pdf",
+    "source": "manufacturer",
+    "url": null,
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/aht21.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-05-19",
+    "notes": "VDD=3.3V, SDA=GP6, SCL=GP7. T=27.1°C, H=30%RH 正常讀取。與 ENS160 共用 sensor I2C bus。"
+  },
+  "added": "2026-05-19",
+  "updated": "2026-05-19"
+}

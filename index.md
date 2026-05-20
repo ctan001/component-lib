@@ -1,7 +1,7 @@
 # component-lib 元件索引
 
-> 更新時間：2026-05-14  
-> 元件總數：40
+> 更新時間：2026-05-19  
+> 元件總數：42
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
 |:--|:--|:--|:--|:--|:--|
@@ -43,6 +43,8 @@
 | [mq2-smoke](components/sensor/dual/mq2-smoke/) | MQ-2烟雾传感器 | sensor/dual | ADC, GPIO | ✅ | ⏳ |
 | [mq3-alcohol](components/sensor/dual/mq3-alcohol/) | MQ-3酒精传感器 | sensor/dual | ADC, GPIO | ✅ | ⏳ |
 | [xht11](components/sensor/humidity/xht11/) | XHT11温湿度传感器 | sensor/humidity | DHT | ✅ | ⏳ |
+| [aht21](components/sensor/humidity/aht21/) | AHT21 溫濕度感應器 | sensor/humidity | I2C | ✅ | ✅ |
+| [ens160](components/sensor/gas/ens160/) | ENS160 空氣品質感應器 | sensor/gas | I2C | ✅ | ✅ |
 | [adxl345](components/sensor/imu/adxl345/) | ADXL345加速度传感器 | sensor/imu | I2C, SPI | ✅ | ⏳ |
 | [hc-sr04](components/sensor/ultrasonic/hc-sr04/) | 超声波传感器 | sensor/ultrasonic | GPIO | ✅ | ⏳ |
 
