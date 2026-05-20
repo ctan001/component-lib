@@ -1,7 +1,7 @@
 # component-lib 元件索引
 
 > 更新時間：2026-05-19  
-> 元件總數：43
+> 元件總數：44
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
 |:--|:--|:--|:--|:--|:--|
@@ -11,13 +11,14 @@
 | [speaker-8002b](components/actuator/speaker-8002b/) | 8002B功放喇叭模块 | actuator | PWM | ✅ | ⏳ |
 | [tm1650](components/display/7seg/tm1650/) | TM1650四位数码管模块 | display/7seg | I2C | ✅ | ⏳ |
 | [lcd-128x32-st7567a](components/display/lcd/lcd-128x32-st7567a/) | LCD 128x32 DOT模块 | display/lcd | I2C | ✅ | ✅ |
+| [lcd-2004-i2c](components/display/lcd/lcd-2004-i2c/) | I2C 2004 LCD 字元顯示模組 | display/lcd | I2C | ✅ | ✅ |
 | [rgb-3color](components/display/led/rgb-3color/) | 3色LED模块 | display/led | GPIO | ✅ | ⏳ |
 | [rgb-plugin](components/display/led/rgb-plugin/) | 插件RGB | display/led | GPIO | ✅ | ⏳ |
 | [sk6812](components/display/led/sk6812/) | SK6812 RGB模块 | display/led | PIO | ✅ | ⏳ |
 | [oled-128x64-ssd1309](components/display/oled/oled-128x64-ssd1309/) | 2.42" OLED 128x64 顯示模組 | display/oled | I2C | ✅ | ✅ |
 | [ht16k33-8x8](components/display/matrix/ht16k33-8x8/) | HT16K33 8X8点阵模块 | display/matrix | I2C | ✅ | ⏳ |
 | [adc-button-5way](components/input/adc-button-5way/) | 五路AD按键 | input | ADC | ✅ | ⏳ |
-| [ir-receiver](components/input/ir-receiver/) | 红外遥控接收器 | input | GPIO | ✅ | ⏳ |
+| [ir-receiver](components/input/ir-receiver/) | 红外遥控接收器 | input | GPIO | ✅ | ✅ |
 | [joystick](components/input/joystick/) | 遥感模块 | input | ADC, GPIO | ✅ | ⏳ |
 | [rotary-encoder](components/input/rotary-encoder/) | 旋转编码器 | input | GPIO | ✅ | ⏳ |
 | [mfrc522](components/module/rfid/mfrc522/) | RFID刷卡模块 | module/rfid | SPI | ✅ | ⏳ |
@@ -42,8 +43,8 @@
 | [tilt](components/sensor/digital/tilt/) | 倾斜模块 | sensor/digital | GPIO | ✅ | ⏳ |
 | [flame](components/sensor/dual/flame/) | 火焰传感器 | sensor/dual | ADC, GPIO | ✅ | ⏳ |
 | [mq2-smoke](components/sensor/dual/mq2-smoke/) | MQ-2烟雾传感器 | sensor/dual | ADC, GPIO | ✅ | ⏳ |
-| [mq3-alcohol](components/sensor/dual/mq3-alcohol/) | MQ-3酒精传感器 | sensor/dual | ADC, GPIO | ✅ | ⏳ |
-| [xht11](components/sensor/humidity/xht11/) | XHT11温湿度传感器 | sensor/humidity | DHT | ✅ | ⏳ |
+| [mq3-alcohol](components/sensor/dual/mq3-alcohol/) | MQ-3酒精传感器 | sensor/dual | ADC, GPIO | ✅ | ✅ |
+| [xht11](components/sensor/humidity/xht11/) | XHT11温湿度传感器 | sensor/humidity | DHT | ✅ | ✅ |
 | [aht21](components/sensor/humidity/aht21/) | AHT21 溫濕度感應器 | sensor/humidity | I2C | ✅ | ✅ |
 | [ens160](components/sensor/gas/ens160/) | ENS160 空氣品質感應器 | sensor/gas | I2C | ✅ | ✅ |
 | [adxl345](components/sensor/imu/adxl345/) | ADXL345加速度传感器 | sensor/imu | I2C, SPI | ✅ | ⏳ |
