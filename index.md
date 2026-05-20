@@ -1,6 +1,6 @@
 # component-lib 元件索引
 
-> 更新時間：2026-05-19  
+> 更新時間：2026-05-19
 > 元件總數：44
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
@@ -15,8 +15,8 @@
 | [rgb-3color](components/display/led/rgb-3color/) | 3色LED模块 | display/led | GPIO | ✅ | ⏳ |
 | [rgb-plugin](components/display/led/rgb-plugin/) | 插件RGB | display/led | GPIO | ✅ | ⏳ |
 | [sk6812](components/display/led/sk6812/) | SK6812 RGB模块 | display/led | PIO | ✅ | ⏳ |
-| [oled-128x64-ssd1309](components/display/oled/oled-128x64-ssd1309/) | 2.42" OLED 128x64 顯示模組 | display/oled | I2C | ✅ | ✅ |
 | [ht16k33-8x8](components/display/matrix/ht16k33-8x8/) | HT16K33 8X8点阵模块 | display/matrix | I2C | ✅ | ⏳ |
+| [oled-128x64-ssd1309](components/display/oled/oled-128x64-ssd1309/) | 2.42" OLED 128x64 顯示模組 | display/oled | I2C | ✅ | ✅ |
 | [adc-button-5way](components/input/adc-button-5way/) | 五路AD按键 | input | ADC | ✅ | ⏳ |
 | [ir-receiver](components/input/ir-receiver/) | 红外遥控接收器 | input | GPIO | ✅ | ✅ |
 | [joystick](components/input/joystick/) | 遥感模块 | input | ADC, GPIO | ✅ | ⏳ |
@@ -44,9 +44,9 @@
 | [flame](components/sensor/dual/flame/) | 火焰传感器 | sensor/dual | ADC, GPIO | ✅ | ⏳ |
 | [mq2-smoke](components/sensor/dual/mq2-smoke/) | MQ-2烟雾传感器 | sensor/dual | ADC, GPIO | ✅ | ⏳ |
 | [mq3-alcohol](components/sensor/dual/mq3-alcohol/) | MQ-3酒精传感器 | sensor/dual | ADC, GPIO | ✅ | ✅ |
-| [xht11](components/sensor/humidity/xht11/) | XHT11温湿度传感器 | sensor/humidity | DHT | ✅ | ✅ |
+| [ens160](components/sensor/gas/ens160/) | ENS160 數位空氣品質感應器 | sensor/gas | I2C | ✅ | ✅ |
 | [aht21](components/sensor/humidity/aht21/) | AHT21 溫濕度感應器 | sensor/humidity | I2C | ✅ | ✅ |
-| [ens160](components/sensor/gas/ens160/) | ENS160 空氣品質感應器 | sensor/gas | I2C | ✅ | ✅ |
+| [xht11](components/sensor/humidity/xht11/) | XHT11温湿度传感器 | sensor/humidity | DHT | ✅ | ✅ |
 | [adxl345](components/sensor/imu/adxl345/) | ADXL345加速度传感器 | sensor/imu | I2C, SPI | ✅ | ⏳ |
 | [hc-sr04](components/sensor/ultrasonic/hc-sr04/) | 超声波传感器 | sensor/ultrasonic | GPIO | ✅ | ⏳ |
 

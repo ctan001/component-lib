@@ -20,10 +20,25 @@
 3. 把 `drivers/micropython/<name>.py` 複製進你的專案
 4. 跑 `example.py` 確認硬體正常
 5. 驗證通過後說「XXX 驗證完成」更新驗證旗標
+6. 執行 `python sync_index.py` 同步 index.md
 
 ## 新增元件 SOP
 
-說「新增元件 XXX」→ AI 搜尋 Mouser/DigiKey datasheet → 建立目錄 + 寫 driver
+說「新增元件 XXX」→ AI 搜尋 Mouser/DigiKey datasheet → 建立目錄 + 寫 driver → 執行 `python sync_index.py`
+
+## index.md 維護
+
+index.md **不要手動編輯**，永遠由 `sync_index.py` 生成：
+
+```
+# 重新生成
+python sync_index.py
+
+# 只檢查差異，不寫入
+python sync_index.py --check
+```
+
+每次更新 component.json（驗證完成、新增元件）後執行一次即可。
 
 ## 硬體
 
