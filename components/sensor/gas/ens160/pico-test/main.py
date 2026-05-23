@@ -37,7 +37,10 @@ oled.show()
 time.sleep_ms(2000)  # ENS160 暖機
 
 
-def draw(temp, rh, aqi, tvoc, eco2):
+# validity flag → 顯示用標籤
+_VALIDITY_LABEL = ("OK", "WarmUp", "Init..", "ERR")
+
+def draw(temp, rh, aqi, tvoc, eco2, validity):
     oled.fill(0)
 
     # Line 0: T and RH
@@ -46,20 +49,27 @@ def draw(temp, rh, aqi, tvoc, eco2):
     # Divider
     oled.hline(0, 10, 128, 1)
 
-    # Line 1: AQI with label
     label = ("", "Excellent", "Good", "Moderate", "Poor", "Unhealthy")
     aqi_str = label[aqi] if 1 <= aqi <= 5 else "?"
-    oled.text("AQI:{} {}".format(aqi, aqi_str), 0, 14)
 
-    # Line 2: eCO2
-    oled.text("CO2: {} ppm".format(eco2), 0, 26)
-
-    # Line 3: TVOC
-    oled.text("TVOC:{} ppb".format(tvoc), 0, 38)
+    if validity == 1:
+        # Warm-Up: only ~3 min, block display
+        oled.text("Warming up...", 0, 14)
+        oled.text("Wait ~3 min", 0, 26)
+    elif validity == 3:
+        # Invalid output: hardware issue
+        oled.text("Sensor ERR", 0, 14)
+        oled.text("Check wiring", 0, 26)
+    else:
+        # validity=0 (Normal) or validity=2 (Init, approx data) — show data
+        oled.text("AQI:{} {}".format(aqi, aqi_str), 0, 14)
+        oled.text("CO2: {} ppm".format(eco2), 0, 26)
+        oled.text("TVOC:{} ppb".format(tvoc), 0, 38)
 
     # Bottom: status bar
     oled.hline(0, 52, 128, 1)
-    oled.text("ENS160+AHT21", 8, 55)
+    v_tag = _VALIDITY_LABEL[validity] if validity < 4 else "ERR"
+    oled.text("ENS160 [{}]".format(v_tag), 8, 55)
 
     oled.show()
 
@@ -73,14 +83,20 @@ while True:
     # Step 2: Feed compensation to ENS160
     ens.set_compensation(temp, rh)
 
-    # Step 3: Read ENS160
-    aqi, tvoc, eco2 = ens.read()
+    # Step 3: Read ENS160 — None means no new data this cycle (NEWDAT=0)
+    result = ens.read()
+    if result is None:
+        time.sleep_ms(READ_INTERVAL)
+        continue  # skip display/log, wait for next sample
+
+    aqi, tvoc, eco2, validity = result
 
     # Step 4: Display
-    draw(temp, rh, aqi, tvoc, eco2)
+    draw(temp, rh, aqi, tvoc, eco2, validity)
 
-    # Step 5: Serial log
-    print("T={:.1f}C  H={:.0f}%  AQI={}  TVOC={}ppb  eCO2={}ppm".format(
-        temp, rh, aqi, tvoc, eco2))
+    # Step 5: Serial log (validity 一起印出)
+    v_str = _VALIDITY_LABEL[validity] if validity < 4 else "ERR"
+    print("T={:.1f}C  H={:.0f}%  AQI={}  TVOC={}ppb  eCO2={}ppm  [{}]".format(
+        temp, rh, aqi, tvoc, eco2, v_str))
 
     time.sleep_ms(READ_INTERVAL)
