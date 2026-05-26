@@ -1,0 +1,75 @@
+{
+  "name": "cc1101-e07-m1101d-sma",
+  "name_zh": "CC1101 433MHz RF收發模組（E07-M1101D-SMA）",
+  "manufacturer": "Chengdu Ebyte Electronic Technology",
+  "part_number": "E07-M1101D-SMA",
+  "category": "module/rf",
+  "description": "基於 TI CC1101 的 433MHz ISM 頻段 RF 收發模組，DIP 封裝，SMA 天線，SPI 介面，支援多種調製，通訊距離最遠 1km",
+  "interface": ["SPI"],
+  "voltage": {
+    "min": 1.8,
+    "max": 3.6,
+    "unit": "V"
+  },
+  "pins": [
+    {"name": "GND  (Pin 1)",       "function": "接地",                              "direction": "input"},
+    {"name": "VCC  (Pin 2)",       "function": "電源 1.8V–3.6V",                   "direction": "input"},
+    {"name": "GDO0 (Pin 3)",       "function": "通用數位輸出（封包同步/carrier detect）", "direction": "output"},
+    {"name": "CSN  (Pin 4)",       "function": "SPI 片選（低電平有效）",             "direction": "input"},
+    {"name": "SCK  (Pin 5)",       "function": "SPI 時鐘",                          "direction": "input"},
+    {"name": "MOSI (Pin 6)",       "function": "SPI 主機輸出從機輸入",               "direction": "input"},
+    {"name": "MISO/GDO1 (Pin 7)", "function": "SPI 主機輸入從機輸出 / GDO1",       "direction": "output"},
+    {"name": "GDO2 (Pin 8)",       "function": "通用數位輸出（通常設為 IRQ）",        "direction": "output"},
+    {"name": "GND  (Pin 9)",       "function": "接地",                              "direction": "input"},
+    {"name": "GND  (Pin 10)",      "function": "接地",                              "direction": "input"}
+  ],
+  "logic": "3.3V",
+  "specs": {
+    "frequency_MHz": 433,
+    "frequency_range_MHz": "387–464",
+    "max_tx_power_dBm": 10,
+    "rx_sensitivity_dBm": -110,
+    "air_data_rate_bps": "600–500000",
+    "modulation": ["OOK", "ASK", "GFSK", "2-FSK", "4-FSK", "MSK"],
+    "fifo_bytes": 64,
+    "reference_distance_m": 1000,
+    "current_tx_mA": 100,
+    "current_rx_mA": 20,
+    "current_sleep_uA": 2,
+    "crystal_MHz": 26,
+    "package": "DIP",
+    "dimensions_mm": "15 x 30",
+    "antenna_interface": "SMA-K (female)",
+    "antenna_impedance_ohm": 50,
+    "certifications": ["FCC", "CE", "RoHS"]
+  },
+  "notes": [
+    "⚠️ 最高耐壓 3.6V，超過將永久損毀；絕對不能直接接 5V",
+    "⚠️ 5V TTL 邏輯必須串 1k-5.1k 電阻降壓（仍有風險，不建議）",
+    "最佳效能需 ≥3.3V 供電",
+    "通訊速率越高，通訊距離越短",
+    "GDO2 通常設為 IRQ，建議用 MCU 外部中斷，不要用 SPI 輪詢",
+    "從 IDLE/Sleep 恢復後，建議重新初始化功率配置表",
+    "天線不得放入金屬殼內，否則距離大幅縮短",
+    "RSSI 和 LQI 可用於信號品質評估"
+  ],
+  "datasheet": {
+    "filename": "CC1101-E07-M1101D-SMA_Usermanual.pdf",
+    "source": "Chengdu Ebyte",
+    "url": "https://www.ebyte.com",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-25",
+  "updated": "2026-05-25"
+}

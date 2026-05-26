@@ -1,0 +1,87 @@
+{
+  "name": "esp32-cam",
+  "name_zh": "ESP32-CAM WiFi攝像頭模組",
+  "manufacturer": "AI-Thinker",
+  "part_number": "ESP32-CAM",
+  "category": "module/camera",
+  "description": "ESP32-S 核心，OV2640 2MP 攝像頭，WiFi + Bluetooth，microSD 插槽，內建閃光燈，支援影像串流、人臉辨識、深度睡眠",
+  "interface": ["UART", "WiFi", "Bluetooth", "SDMMC", "GPIO"],
+  "voltage": {
+    "min": 3.3,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {"name": "5V",       "function": "電源輸入 5V（或 3.3V）",                "direction": "input"},
+    {"name": "GND",      "function": "接地",                                  "direction": "input"},
+    {"name": "3.3V",     "function": "3.3V 輸出（P_OUT）",                    "direction": "output"},
+    {"name": "GPIO 0",   "function": "CSI_MCLK / 燒錄時接 GND 進入 Flash 模式", "direction": "I/O"},
+    {"name": "GPIO 1",   "function": "U0TXD（UART TX）",                      "direction": "output"},
+    {"name": "GPIO 3",   "function": "U0RXD（UART RX）",                      "direction": "input"},
+    {"name": "GPIO 4",   "function": "HS2_DATA1 / Flash LED（高電平亮）",      "direction": "output"},
+    {"name": "GPIO 16",  "function": "U2RXD",                                 "direction": "input"},
+    {"name": "GPIO 2",   "function": "HS2_DATA0",                             "direction": "I/O"},
+    {"name": "GPIO 12",  "function": "HS2_DATA2",                             "direction": "I/O"},
+    {"name": "GPIO 13",  "function": "HS2_DATA3",                             "direction": "I/O"},
+    {"name": "GPIO 14",  "function": "HS2_CLK",                               "direction": "I/O"},
+    {"name": "GPIO 15",  "function": "HS2_CMD",                               "direction": "I/O"}
+  ],
+  "camera_pins": {
+    "PWDN":  32,
+    "RESET": -1,
+    "XCLK":   0,
+    "SIOD":  26,
+    "SIOC":  27,
+    "Y9":    35,
+    "Y8":    34,
+    "Y7":    39,
+    "Y6":    36,
+    "Y5":    21,
+    "Y4":    19,
+    "Y3":    18,
+    "Y2":     5,
+    "VSYNC": 25,
+    "HREF":  23,
+    "PCLK":  22
+  },
+  "logic": "3.3V",
+  "specs": {
+    "wifi": "802.11 b/g/n",
+    "bluetooth": "BT 4.2 + BLE",
+    "camera": "OV2640 2MP",
+    "ram": "512KB SRAM + 4MB PSRAM",
+    "storage": "microSD 最高 4GB",
+    "flash_led_gpio": 4,
+    "dimensions_mm": "40.5 x 27 x 4.5",
+    "current_flash_off_mA": 180,
+    "current_flash_max_mA": 310,
+    "current_deep_sleep_mA": 6,
+    "current_light_sleep_mA": 6.7
+  },
+  "notes": [
+    "燒錄時需用 FTDI（設 3.3V），GPIO0 接 GND 才能進 Flash 模式",
+    "燒錄完成後移除 GPIO0-GND 跳線，按 RESET",
+    "Arduino IDE 選板：AI-Thinker ESP32-CAM",
+    "有 PSRAM 時最高支援 FRAMESIZE_UXGA；無 PSRAM 最高 FRAMESIZE_SVGA",
+    "Flash LED 連接 GPIO 4，rtc_gpio_hold_en 可讓 LED 在深度睡眠中保持狀態"
+  ],
+  "datasheet": {
+    "filename": "ESP32-CAM.pdf",
+    "source": "HandsOn Technology",
+    "url": "https://github.com/SeeedDocument/forum_doc/blob/master/reg/ESP32_CAM_V1.6.pdf",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": "drivers/arduino/esp32cam_snapshot.ino"
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-05-25",
+  "updated": "2026-05-25"
+}

@@ -1,7 +1,7 @@
 # component-lib 元件索引
 
-> 更新時間：2026-05-25
-> 元件總數：44
+> 更新時間：2026-05-26
+> 元件總數：46
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
 |:--|:--|:--|:--|:--|:--|
@@ -49,6 +49,8 @@
 | [xht11](components/sensor/humidity/xht11/) | XHT11温湿度传感器 | sensor/humidity | DHT | ✅ | ✅ |
 | [adxl345](components/sensor/imu/adxl345/) | ADXL345加速度传感器 | sensor/imu | I2C, SPI | ✅ | ⏳ |
 | [hc-sr04](components/sensor/ultrasonic/hc-sr04/) | 超声波传感器 | sensor/ultrasonic | GPIO | ✅ | ⏳ |
+| [cc1101-e07-m1101d-sma](components/module/rf/cc1101-e07-m1101d-sma/) | CC1101 433MHz RF收發模組（E07-M1101D-SMA） | module/rf | SPI | ❌ | ⏳ |
+| [esp32-cam](components/module/camera/esp32-cam/) | ESP32-CAM WiFi攝像頭模組 | module/camera | UART, WiFi, Bluetooth, SDMMC, GPIO | ❌ | ⏳ |
 
 ---
 
