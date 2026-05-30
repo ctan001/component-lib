@@ -112,67 +112,76 @@ class CC1101:
 
 
 # ── 固定碼資料 ────────────────────────────────────────────────
-SN        = 0xF1B15E9D
-LIGHT_CODE = 0x0E60199F  # 28-bit code for 燈
-STAT_BITS  = 0xF          # 4-bit stat
+SN = 0xF1B15E9D
 
-CODE_MAP = {
-    0xE60199F: ('燈',     'LIGHT'),
-    0x7F8819F: ('風扇開關', 'FAN ON/OFF'),
-    0xF70099F: ('風扇加速', 'FAN FASTER'),
-    0xF68099F: ('風扇減速', 'FAN SLOWER'),
-}
+# 按鍵清單：(28-bit code, stat 4-bit, 中文, OLED英文)
+# Stat 依 Flipper 實測：燈/加速=0xF，風扇開關/減速=0x7
+BUTTONS = [
+    (0x0E60199F, 0xF, '燈',     'Light'),
+    (0x07F8819F, 0x7, '風扇開關', 'Fan On/Off'),
+    (0x0F70099F, 0xF, '風扇加速', 'Fan Faster'),
+    (0x0F68099F, 0x7, '風扇減速', 'Fan Slower'),
+]
+
+CODE_MAP = {code & 0xFFFFFFF: (zh, en) for code, stat, zh, en in BUTTONS}
 
 # ── TX 功能 ───────────────────────────────────────────────────
-Te = 350  # µs（原廠~380µs，補償 python 呼叫開銷 ~30µs）
+# p(1) overhead ~12µs，p(0) overhead ~7µs → 需分開補償
+# 原廠實測：SHORT HIGH=391, SHORT LOW=406, LONG HIGH=793, LONG LOW=807
+Te_h  = 379  # sleep → 379+12 = 391µs (SHORT HIGH)
+Te_l  = 399  # sleep → 399+ 7 = 406µs (SHORT LOW)
+Te2_h = 781  # sleep → 781+12 = 793µs (LONG  HIGH)
+Te2_l = 800  # sleep → 800+ 7 = 807µs (LONG  LOW)
 
-def _build_frame():
+def _build_frame(code, stat):
     bits = []
     for i in range(32): bits.append((SN >> i) & 1)
-    for i in range(28): bits.append((LIGHT_CODE >> i) & 1)
-    for i in range(4):  bits.append((STAT_BITS >> i) & 1)
+    for i in range(28): bits.append((code >> i) & 1)
+    for i in range(4):  bits.append((stat >> i) & 1)
     return bits
 
 def _tx_frame(p, bits):
-    """Bit-bang 一個 Keeloq frame，直接呼叫減少 Python overhead"""
-    Te2 = Te * 2
-
-    # Preamble: 12 × (Te HIGH + Te LOW)
+    # Preamble: 12 × (SHORT HIGH + SHORT LOW)
     for _ in range(12):
-        p(1); time.sleep_us(Te)
-        p(0); time.sleep_us(Te)
+        p(1); time.sleep_us(Te_h)
+        p(0); time.sleep_us(Te_l)
 
-    # Header: long LOW（實測遙控器 = 14058µs）
-    p(0); time.sleep_us(14000)
+    # Header
+    p(0); time.sleep_us(5200)
 
     # 64 data bits
     for b in bits:
         if b:
-            p(1); time.sleep_us(Te2)
-            p(0); time.sleep_us(Te)
+            p(1); time.sleep_us(Te2_h)   # LONG  HIGH
+            p(0); time.sleep_us(Te_l)    # SHORT LOW
         else:
-            p(1); time.sleep_us(Te)
-            p(0); time.sleep_us(Te2)
+            p(1); time.sleep_us(Te_h)    # SHORT HIGH
+            p(0); time.sleep_us(Te2_l)   # LONG  LOW
 
-    p(0); time.sleep_us(Te * 4)
+    # Stop bit
+    p(1); time.sleep_us(Te2_h)
+    p(0); time.sleep_us(Te_l)
 
-def transmit_light(radio, oled):
-    bits = _build_frame()
+    # Trailing HIGH（切斷 stop LOW 與 inter-frame 合併）
+    p(1); time.sleep_us(Te_h)
+    p(0)
 
-    # 先進入 TX 模式等 PLL 穩定（GDO0 暫時保持 Low）
-    radio.start_tx()                  # SIDLE → STX + 5ms wait
-    gdo0_out = Pin(6, Pin.OUT, value=0)  # TX 穩定後才接管 GDO0
+def transmit(code, stat, zh, en, radio, oled):
+    bits = _build_frame(code, stat)
+
+    radio.start_tx()
+    gdo0_out = Pin(6, Pin.OUT, value=0)
 
     oled.fill(0)
     oled.text('** TX **', 24, 0)
-    oled.text('>> LIGHT', 0, 20)
-    oled.text('Max Power 0xC0', 0, 36)
+    oled.text(f'>> {en[:13]}', 0, 20)
+    oled.text(f'   {zh[:13]}', 0, 36)
     oled.show()
-    print('TX: 發射「燈」訊號 × 3')
+    print(f'TX: [{zh}] {en}')
 
-    for _ in range(5):          # 連發 5 次提高可靠性
+    for _ in range(3):
         _tx_frame(gdo0_out, bits)
-        time.sleep_ms(20)       # inter-frame gap
+        time.sleep_ms(25)
 
     gdo0_out(0)
     radio.idle()
@@ -226,40 +235,71 @@ radio = CC1101()
 ver_ok = radio.version == 0x14
 print(f'CC1101 VERSION: 0x{radio.version:02X}', '✅' if ver_ok else '❌')
 
-# GP15 按鍵（Internal Pull-up，按下=LOW）
-tx_flag = False
+# GP15 多次按鍵偵測
+_press_count = 0
+_last_press_ms = 0
+_oled_dirty = False
+_DEBOUNCE_MS = 60
+_WINDOW_MS   = 500  # ms 無新按鍵後觸發發射
+
 def _btn_irq(pin):
-    global tx_flag
-    tx_flag = True
+    global _press_count, _last_press_ms, _oled_dirty
+    now = time.ticks_ms()
+    if time.ticks_diff(now, _last_press_ms) > _DEBOUNCE_MS:
+        _press_count += 1
+        _last_press_ms = now
+        _oled_dirty = True
+
 btn = Pin(15, Pin.IN, Pin.PULL_UP)
 btn.irq(trigger=Pin.IRQ_FALLING, handler=_btn_irq)
 
 gdo0 = Pin(6, Pin.IN)
 radio.rx()
-print('GP15 按下 → 發射燈訊號')
-print('等待 RX 或 TX...')
 
-oled.fill(0)
-oled.text('Keeloq RX+TX', 0, 0)
-oled.text('GP15=TX LIGHT', 0, 16)
-oled.text('Waiting...', 0, 32)
-oled.show()
+def _show_idle(oled):
+    oled.fill(0)
+    oled.text('Keeloq RX+TX', 0, 0)
+    oled.text('[1]Light [2]Fan', 0, 14)
+    oled.text('[3]Fast  [4]Slow', 0, 26)
+    oled.text('Waiting...', 0, 48)
+    oled.show()
+
+_show_idle(oled)
+print('GP15: 1下=燈  2下=風扇開關  3下=加速  4下=減速')
+print('等待 RX 或 TX...')
 
 last_code = -1
 last_time = 0
-count = 0
+rx_count  = 0
 
 while True:
-    if tx_flag:
-        tx_flag = False
-        transmit_light(radio, oled)
+    # ── 計數視窗更新 OLED ──
+    if _oled_dirty and _press_count > 0:
+        _oled_dirty = False
+        n = min(_press_count, 4)
+        _, _, zh, en = BUTTONS[n - 1]
+        dots = '*' * n + ' ' * (4 - n)
+        oled.fill(0)
+        oled.text(f'[{dots}] {n}x', 0, 0)
+        oled.text(f'>> {en[:13]}', 0, 18)
+        oled.text(f'   {zh[:13]}', 0, 34)
+        oled.text('...', 48, 52)
+        oled.show()
+
+    # ── 超時 → 發射 ──
+    if _press_count > 0 and time.ticks_diff(time.ticks_ms(), _last_press_ms) > _WINDOW_MS:
+        n = min(_press_count, 4)
+        _press_count = 0
+        code, stat, zh, en = BUTTONS[n - 1]
+        transmit(code, stat, zh, en, radio, oled)
         gdo0 = Pin(6, Pin.IN)
         radio.rx()
         oled.fill(0)
-        oled.text('TX Done!', 0, 0)
-        oled.text('Back to RX...', 0, 20)
+        oled.text('TX Done!', 16, 0)
+        oled.text(f'{en[:16]}', 0, 20)
         oled.show()
-        time.sleep_ms(500)
+        time.sleep_ms(800)
+        _show_idle(oled)
         continue
 
     result = decode_keeloq(gdo0, attempts=30)
@@ -269,15 +309,14 @@ while True:
     serial, code, stat = result
     now = time.ticks_ms()
     if code != last_code or time.ticks_diff(now, last_time) > 1000:
-        count += 1
+        rx_count += 1
         zh, en = CODE_MAP.get(code, ('?', f'{code:07X}'))
-        print(f'RX [{zh}] {en}  Code=0x{code:07X}  #{count}')
+        print(f'RX [{zh}] {en}  Code=0x{code:07X}  #{rx_count}')
         oled.fill(0)
-        oled.text('Keeloq RX+TX', 0, 0)
+        oled.text('RX:', 0, 0)
         oled.text(f'SN:{serial:08X}', 0, 12)
-        oled.text(f'>> {en}', 0, 28)
-        oled.text(f'{code:07X}', 0, 40)
-        oled.text(f'#{count}', 0, 52)
+        oled.text(f'>> {en[:13]}', 0, 28)
+        oled.text(f'{code:07X} #{rx_count}', 0, 44)
         oled.show()
         last_code = code
         last_time = now

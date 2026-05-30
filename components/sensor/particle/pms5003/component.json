@@ -1,0 +1,10 @@
+{
+  "name": "PMS5003",
+  "category": "sensor/particle",
+  "manufacturer": "PLANTOWER",
+  "interface": "UART",
+  "voltage": "5V (data 3.3V TTL)",
+  "datasheet": "datasheet/Laser_Sensor_PMS5003_manual_v2-3.pdf",
+  "measures": ["PM1.0", "PM2.5", "PM10", "particle count"],
+  "status": "新增，driver 待補充"
+}
