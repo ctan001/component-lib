@@ -125,6 +125,30 @@ BUTTONS = [
 
 CODE_MAP = {code & 0xFFFFFFF: (zh, en) for code, stat, zh, en in BUTTONS}
 
+# ── Key 2 / Key 3：原廠錄製波形 raw replay（繞過 Python timing 問題）──
+# 格式：[pre_H, pre_L, ...×N pairs, header_L, data_H, data_L, ...×65, trailing_H]
+# 來源：Flipper 錄製 F22.sub / F33.sub（NEO 遙控器原廠訊號）
+
+KEY2_WAVE = [323, 478, 323, 474, 323, 476, 321, 476, 323, 476, 321, 480, 323, 476, 321, 476, 321, 478, 323, 476, 355, 444, 5244, 785, 426, 367, 816, 799, 400, 787, 396, 795, 408, 393, 824, 379, 816, 805, 382, 415, 780, 811, 388, 801, 396, 797, 408, 811, 380, 413, 814, 775, 416, 377, 818, 799, 402, 393, 790, 411, 820, 357, 832, 775, 408, 815, 388, 411, 778, 807, 416, 773, 420, 387, 814, 385, 814, 383, 816, 777, 418, 779, 414, 809, 386, 809, 384, 805, 418, 779, 416, 773, 420, 783, 416, 801, 420, 355, 808, 419, 780, 811, 388, 805, 394, 401, 816, 379, 806, 415, 780, 411, 810, 385, 814, 383, 812, 777, 416, 387, 804, 417, 780, 381, 840, 777, 414, 779, 416, 805, 386, 811, 382, 817, 420, 777, 384, 805, 420, 777, 418, 383, 816, 785, 426, 757, 416, 797, 426, 367, 814, 403, 788, 379]
+KEY2_PRE  = 11
+
+KEY3_WAVE = [365, 330, 295, 462, 291, 508, 291, 508, 325, 476, 325, 474, 325, 474, 323, 476, 325, 474, 323, 476, 325, 476, 323, 476, 5242, 789, 426, 379, 828, 773, 406, 787, 394, 797, 408, 393, 830, 379, 818, 781, 386, 413, 812, 777, 416, 799, 410, 769, 410, 813, 380, 413, 810, 775, 416, 383, 818, 783, 424, 379, 796, 409, 818, 379, 806, 809, 412, 781, 386, 413, 814, 773, 414, 773, 422, 387, 810, 387, 812, 381, 808, 809, 420, 777, 384, 817, 420, 779, 384, 805, 420, 781, 416, 773, 420, 781, 418, 801, 386, 389, 818, 419, 778, 811, 386, 803, 396, 399, 820, 387, 802, 777, 410, 391, 830, 379, 820, 387, 802, 381, 818, 385, 808, 415, 784, 385, 808, 417, 782, 809, 382, 805, 422, 779, 416, 385, 814, 783, 422, 771, 422, 769, 444, 779, 388, 805, 414, 779, 416, 781, 418, 779, 416, 383, 812, 381]
+KEY3_PRE  = 12
+
+INTER_MS  = 26   # inter-frame gap (ms)
+
+def _replay_wave(p, wave, pre_count):
+    idx = 0
+    for _ in range(pre_count):
+        p(1); time.sleep_us(wave[idx]); idx += 1
+        p(0); time.sleep_us(wave[idx]); idx += 1
+    p(0); time.sleep_us(wave[idx]); idx += 1  # header LOW
+    while idx < len(wave) - 1:
+        p(1); time.sleep_us(wave[idx]); idx += 1
+        p(0); time.sleep_us(wave[idx]); idx += 1
+    p(1); time.sleep_us(wave[idx])  # trailing HIGH
+    p(0)
+
 # ── TX 功能 ───────────────────────────────────────────────────
 # p(1) overhead ~12µs，p(0) overhead ~7µs → 需分開補償
 # 原廠實測：SHORT HIGH=391, SHORT LOW=406, LONG HIGH=793, LONG LOW=807
@@ -166,9 +190,7 @@ def _tx_frame(p, bits):
     p(1); time.sleep_us(Te_h)
     p(0)
 
-def transmit(code, stat, zh, en, radio, oled):
-    bits = _build_frame(code, stat)
-
+def transmit(code, stat, zh, en, radio, oled, key_idx=0):
     radio.start_tx()
     gdo0_out = Pin(6, Pin.OUT, value=0)
 
@@ -179,9 +201,19 @@ def transmit(code, stat, zh, en, radio, oled):
     oled.show()
     print(f'TX: [{zh}] {en}')
 
-    for _ in range(3):
-        _tx_frame(gdo0_out, bits)
-        time.sleep_ms(25)
+    if key_idx == 1:    # Key 2：raw replay (F22 原廠波形)
+        for _ in range(3):
+            _replay_wave(gdo0_out, KEY2_WAVE, KEY2_PRE)
+            time.sleep_ms(INTER_MS)
+    elif key_idx == 2:  # Key 3：raw replay (F33 原廠波形)
+        for _ in range(3):
+            _replay_wave(gdo0_out, KEY3_WAVE, KEY3_PRE)
+            time.sleep_ms(INTER_MS)
+    else:               # Key 1 / Key 4：keeloq bit-bang（已驗證正常）
+        bits = _build_frame(code, stat)
+        for _ in range(3):
+            _tx_frame(gdo0_out, bits)
+            time.sleep_ms(25)
 
     gdo0_out(0)
     radio.idle()
@@ -291,7 +323,7 @@ while True:
         n = min(_press_count, 4)
         _press_count = 0
         code, stat, zh, en = BUTTONS[n - 1]
-        transmit(code, stat, zh, en, radio, oled)
+        transmit(code, stat, zh, en, radio, oled, key_idx=n - 1)
         gdo0 = Pin(6, Pin.IN)
         radio.rx()
         oled.fill(0)
