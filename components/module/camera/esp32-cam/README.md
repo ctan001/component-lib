@@ -87,9 +87,19 @@ AI-Thinker ESP32-CAM：ESP32-S 核心 + OV2640 2MP 攝像頭 + WiFi + Bluetooth�
 - Flash LED 使用 `rtc_gpio_hold_en(GPIO_NUM_4)` 可在深度睡眠中保持狀態
 - 供電需充足（最大 310mA），電源不穩容易導致當機
 
-## Datasheet
+## 技術文件
 
-[ESP32-CAM.pdf](datasheet/ESP32-CAM.pdf) — HandsOn Technology
+| 文件 | 說明 |
+|:-----|:-----|
+| [ESP32-CAM.pdf](datasheet/ESP32-CAM.pdf) | HandsOn Technology 模組 Datasheet（pin map、電路圖、燒錄方式） |
+| [esp_camera API Reference](docs/esp_camera_api_reference.md) | Espressif esp32-camera v2.1.6 完整 API（struct/enum/function） |
+| [OV2640 Register Map](docs/ov2640_register_map.md) | OV2640 雙 bank register 完整定義（DSP + Sensor） |
+| [ESP32 Camera FAQ](docs/esp32_camera_faq.md) | 常見問題、效能調校、troubleshooting |
+
+**外部來源**:
+- [espressif/esp32-camera GitHub](https://github.com/espressif/esp32-camera) — 官方 driver 原始碼
+- [Arduino CameraWebServer 範例](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/Camera/CameraWebServer) — WiFi 影像串流範例
+- [ESP Component Registry](https://components.espressif.com/components/espressif/esp32-camera) — 最新版本 v2.1.6
 
 ## 驗證狀態
 
