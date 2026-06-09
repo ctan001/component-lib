@@ -1,0 +1,81 @@
+{
+  "name": "xiao-vision-ai",
+  "name_zh": "XIAO Vision AI 攝像頭（邊緣 AI 視覺套件）",
+  "manufacturer": "Seeed Studio",
+  "part_number": "104990982",
+  "category": "module/camera",
+  "description": "邊緣 AI 視覺套件：Grove Vision AI V2（Himax WiseEye2 HX6538，Arm Cortex-M55 + Ethos-U55 NPU）+ XIAO ESP32-C3（WiFi/BLE）+ OV5647 5MP 攝像頭，含 3D 列印外殼。支援 SenseCraft AI 無程式碼模型部署、TensorFlow/PyTorch、ESPHome / Home Assistant 整合",
+  "interface": ["USB-C", "WiFi", "Bluetooth", "I2C", "UART", "SPI", "CSI"],
+  "voltage": {
+    "min": 5.0,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {"name": "USB Type-C", "function": "5V 電源輸入 + 燒錄/序列（XIAO ESP32-C3）", "direction": "input"},
+    {"name": "Grove I2C", "function": "Grove Vision AI V2 對外 I2C（與主控/感測器溝通）", "direction": "I/O"},
+    {"name": "Grove UART", "function": "對外 UART（預設 baud 115200）", "direction": "I/O"},
+    {"name": "Grove SPI", "function": "對外 SPI", "direction": "I/O"},
+    {"name": "CSI", "function": "OV5647 攝像頭 CSI 連接器（內部）", "direction": "input"},
+    {"name": "microSD", "function": "Grove Vision AI V2 microSD 卡槽（DS mode, 最高 25MHz SDIO）", "direction": "I/O"},
+    {"name": "PDM MIC", "function": "Grove Vision AI V2 內建 PDM 麥克風", "direction": "input"}
+  ],
+  "logic": "protocol",
+  "specs": {
+    "camera_sensor": "OmniVision OV5647",
+    "still_resolution": "2592 x 1944 (5 MP)",
+    "field_of_view": "62°",
+    "video_modes": "1080p @ 30fps; 720p @ 60fps",
+    "pixel_size": "1.4 µm x 1.4 µm",
+    "focal_length": "3.4 mm (adjustable)",
+    "aperture": "F/2.8",
+    "cmos_size": "1/4\"",
+    "master_controller": "XIAO ESP32-C3 (RISC-V 單核 32-bit, up to 160MHz, 400KB SRAM, 4MB Flash)",
+    "wireless": "2.4GHz WiFi / Bluetooth 5.0 (XIAO ESP32-C3)",
+    "ai_processor": "Grove Vision AI Module V2 — Himax WiseEye2 HX6538",
+    "ai_cpu": "dual-core Arm Cortex-M55 @ 400MHz & 150MHz",
+    "ai_npu": "Arm Ethos-U55 microNPU @ 400MHz",
+    "ai_sram": "Configurable SRAM up to 2432 KB; 64 KB Boot ROM",
+    "power_supply": "5V via USB Type-C",
+    "baud_rate": "115200 bps",
+    "operating_temp": "-20°C to 70°C",
+    "enclosure_dimensions_mm": "31 x 49 x 32",
+    "enclosure_material": "PLA (White, 3D Printing)",
+    "ai_frameworks": "TensorFlow / PyTorch",
+    "builtin_models": "Mobilenet V1/V2, EfficientNet-Lite, YOLO v5/v8"
+  },
+  "applications": [
+    "工業自動化：品質檢測、預測性維護、語音控制",
+    "智慧城市：設備監控、能源管理",
+    "交通運輸：狀態監控、位置追蹤",
+    "智慧農業：環境監測",
+    "行動 IoT 裝置：穿戴式/手持式裝置"
+  ],
+  "notes": [
+    "Early Build 產品：beta 階段，3D 列印外殼，軟體持續演進",
+    "三合一套件：Grove Vision AI V2（AI 運算）+ XIAO ESP32-C3（WiFi/控制）+ OV5647（影像）",
+    "無程式碼開發：透過 SenseCraft AI 平台選模型/訓練/一鍵部署，網頁即時可視化推論結果",
+    "ESPHome Ready：可用瀏覽器直接燒錄，無需 YAML，整合 Home Assistant 做本地閉環自動化",
+    "完全開源：所有程式碼、設計檔、電路圖皆可修改使用；外殼開源於 Thingiverse",
+    "與 Arduino IDE 相容"
+  ],
+  "datasheet": {
+    "filename": "XIAO-Vision-AI-Camera_product.pdf",
+    "source": "manufacturer",
+    "url": "https://files.seeedstudio.com/Bazaar/product_pdf/104990982.pdf",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": ""
+  },
+  "added": "2026-06-09",
+  "updated": "2026-06-09"
+}
