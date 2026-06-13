@@ -1,0 +1,54 @@
+{
+  "name": "ir-emitter-tsal",
+  "name_zh": "红外发射模块 TSAL6100/6200 + BJT 驱动",
+  "manufacturer": "Vishay (LED) / onsemi (BJT)",
+  "part_number": "TSAL6100 / TSAL6200 + MMBT3904",
+  "category": "actuator",
+  "description": "940nm 红外 LED 发射模块（含 BJT 驱动线路）。TSAL6100=窄角±10°长距；TSAL6200=广角±17°。MMBT3904 NPN 低端开关，5V 驱动、3.3V 逻辑输入。tr/tf=15ns，适合 38kHz NEC 调制遥控发射。仅限脉冲/调制使用。",
+  "interface": [
+    "GPIO",
+    "PWM"
+  ],
+  "voltage": {
+    "min": 5.0,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "VCC",
+      "function": "电源 5V（驱动 LED；务必接 5V，非 3.3V）",
+      "direction": "input"
+    },
+    {
+      "name": "GND",
+      "function": "接地",
+      "direction": "input"
+    },
+    {
+      "name": "SIG",
+      "function": "信号输入，3.3V 逻辑（接 MCU GPIO/PWM），HIGH→发射（active-high）",
+      "direction": "input"
+    }
+  ],
+  "logic": "active-high",
+  "datasheet": {
+    "filename": "TSAL6100.pdf / TSAL6200.pdf",
+    "source": "manufacturer",
+    "url": "https://www.vishay.com/docs/81009/tsal6100.pdf",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "本 entry 只含硬体驱动线路（见 circuit.svg）；NEC 编码/碼表/coding 留各专案（见 feedback_protocol_in_project_not_db）。⚠️脉冲/调制专用，SIG 勿长期 HIGH（LED 100mA 为连续上限）。待硬体接好后用 ir-receiver 收回验证。"
+  },
+  "added": "2026-06-13",
+  "updated": "2026-06-13"
+}

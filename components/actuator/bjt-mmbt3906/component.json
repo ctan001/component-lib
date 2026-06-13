@@ -1,0 +1,53 @@
+{
+  "name": "bjt-mmbt3906",
+  "name_zh": "PNP 通用晶體 MMBT3906",
+  "manufacturer": "onsemi",
+  "part_number": "MMBT3906 (SMD 2N3906)",
+  "category": "actuator",
+  "description": "PNP 通用放大/開關晶體，SOT-23 SMD 封裝（= 2N3906 的貼片版）。VCEO −40V、Ic −200mA、hFE@100mA≥30。常用於高端開關、訊號放大。與 MMBT3904 (NPN) 互補。",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": -40,
+    "max": 0,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "1 / B",
+      "function": "Base 基極（SOT-23 Pin 1，底面左下）",
+      "direction": "input"
+    },
+    {
+      "name": "2 / E",
+      "function": "Emitter 射極（SOT-23 Pin 2，底面右下）",
+      "direction": "input"
+    },
+    {
+      "name": "3 / C",
+      "function": "Collector 集極（SOT-23 Pin 3，單腳側）",
+      "direction": "output"
+    }
+  ],
+  "logic": "active-low",
+  "datasheet": {
+    "filename": "MMBT3906LT1.pdf",
+    "source": "manufacturer",
+    "url": "https://www.onsemi.com/download/data-sheet/pdf/mmbt3906lt1-d.pdf",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "被動元件，無 driver。SOT-23 腳位：Pin1=Base, Pin2=Emitter, Pin3=Collector（onsemi 官方，與 MMBT3904 相同）。PNP：射極接高電位、base 拉低導通。"
+  },
+  "added": "2026-06-13",
+  "updated": "2026-06-13"
+}

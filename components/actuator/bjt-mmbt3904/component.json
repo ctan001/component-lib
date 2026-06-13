@@ -1,0 +1,53 @@
+{
+  "name": "bjt-mmbt3904",
+  "name_zh": "NPN 通用晶體 MMBT3904",
+  "manufacturer": "onsemi",
+  "part_number": "MMBT3904 (SMD 2N3904)",
+  "category": "actuator",
+  "description": "NPN 通用放大/開關晶體，SOT-23 SMD 封裝（= 2N3904 的貼片版）。VCEO 40V、Ic 200mA、hFE@100mA≥30。常用於 LED/繼電器低端開關、訊號放大。與 MMBT3906 (PNP) 互補。",
+  "interface": [
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 0,
+    "max": 40,
+    "unit": "V"
+  },
+  "pins": [
+    {
+      "name": "1 / B",
+      "function": "Base 基極（SOT-23 Pin 1，底面左下）",
+      "direction": "input"
+    },
+    {
+      "name": "2 / E",
+      "function": "Emitter 射極（SOT-23 Pin 2，底面右下）",
+      "direction": "input"
+    },
+    {
+      "name": "3 / C",
+      "function": "Collector 集極（SOT-23 Pin 3，單腳側）",
+      "direction": "output"
+    }
+  ],
+  "logic": "active-high",
+  "datasheet": {
+    "filename": "MMBT3904LT1.pdf",
+    "source": "manufacturer",
+    "url": "https://www.onsemi.com/download/data-sheet/pdf/mmbt3904lt1-d.pdf",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "被動元件，無 driver。SOT-23 腳位：Pin1=Base, Pin2=Emitter, Pin3=Collector（onsemi 官方）。"
+  },
+  "added": "2026-06-13",
+  "updated": "2026-06-13"
+}

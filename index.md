@@ -1,11 +1,14 @@
 # component-lib 元件索引
 
-> 更新時間：2026-06-12
-> 元件總數：48
+> 更新時間：2026-06-13
+> 元件總數：51
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
 |:--|:--|:--|:--|:--|:--|
+| [bjt-mmbt3904](components/actuator/bjt-mmbt3904/) | NPN 通用晶體 MMBT3904 | actuator | GPIO | ❌ | ⏳ |
+| [bjt-mmbt3906](components/actuator/bjt-mmbt3906/) | PNP 通用晶體 MMBT3906 | actuator | GPIO | ❌ | ⏳ |
 | [buzzer-active](components/actuator/buzzer-active/) | 有源蜂鸣器 | actuator | GPIO | ✅ | ⏳ |
+| [ir-emitter-tsal](components/actuator/ir-emitter-tsal/) | 红外发射模块 TSAL6100/6200 + BJT 驱动 | actuator | GPIO, PWM | ❌ | ⏳ |
 | [motor-130](components/actuator/motor-130/) | 130电机模块 | actuator | GPIO | ✅ | ⏳ |
 | [servo](components/actuator/servo/) | 伺服舵机 | actuator | PWM | ✅ | ⏳ |
 | [speaker-8002b](components/actuator/speaker-8002b/) | 8002B功放喇叭模块 | actuator | PWM | ✅ | ⏳ |
