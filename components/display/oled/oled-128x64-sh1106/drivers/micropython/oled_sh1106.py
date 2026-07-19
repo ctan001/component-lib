@@ -1,6 +1,11 @@
 """
 oled_sh1106.py — 1.3" SH1106 128x64 OLED driver for MicroPython (Pico)
 
+作者：Jerry（Claude Code 協助撰寫）
+建立日期：2026-07-18
+最後修改：2026-07-18
+相依檔案：MicroPython 內建 ssd1306 模組
+
 SH1106 差異（依原廠 Sino Wealth datasheet 確認）：
   - charge pump: 0xAD,0x8B (內供VCC/內部DC-DC ON)，跟SSD1306內建的0x8D,0x14不相容
   - GDDRAM是132欄寬，但面板只顯示中間128欄 → 每次寫入前欄位起始位址須設為2，

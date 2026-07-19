@@ -46,7 +46,7 @@
     "status": "verified",
     "platform": "micropython-pico",
     "date": "2026-07-18",
-    "notes": "Pico(COM7, RP2040, MicroPython 1.28.0) I2C0(SDA=GP4,SCL=GP5)。scan()找到0x3C；driver上傳後執行init_display()+文字渲染(3行文字+橫線)，使用者目視確認實體螢幕顯示正常，無偏移/跑版/文字截斷，132欄offset處理正確。"
+    "notes": "Pico(COM7, RP2040, MicroPython 1.28.0) I2C0(SDA=GP4,SCL=GP5)。scan()找到0x3C；driver上傳後執行init_display()+文字渲染(3行文字+橫線)，使用者目視確認實體螢幕顯示正常，無偏移/跑版/文字截斷，132欄offset處理正確。_test_oled.py已加CYCLES/PAGE_DISPLAY_SECONDS常數，測試1(8頁)與測試2(欄位邊界)各停留3秒、循環4輪，使用者確認驗證通過。"
   },
   "added": "2026-07-18",
   "updated": "2026-07-18"
