@@ -1,0 +1,53 @@
+{
+  "name": "oled-128x64-sh1106",
+  "name_zh": "1.3\" OLED 128x64 顯示模組",
+  "manufacturer": "Hosyond（驅動IC: Sino Wealth SH1106）",
+  "part_number": "SH1106",
+  "category": "display/oled",
+  "description": "1.3 吋 128×64 像素 OLED 顯示模組，SH1106 驅動晶片，I2C 介面",
+  "interface": ["I2C"],
+  "voltage": {"min": 1.65, "max": 3.3, "unit": "V", "note": "為晶片本身VDD邏輯電壓；Amazon listing標示模組可接受3.3~5V供電，判斷板上有穩壓/電平轉換電路，待實測確認"},
+  "mechanical": {
+    "panel_size_mm": {"w": 34.5, "h": 23.0, "note": "含Cap/Panel，依原廠datasheet 1.2節"},
+    "active_area_mm": {"w": 29.42, "h": 14.7, "note": "實際可視顯示區域，依原廠datasheet 1.2節，與Amazon listing一致(交叉驗證)"},
+    "module_pcb_size_mm": {"w": 33.7, "h": 35.5, "note": "含接針的完整PCB模組尺寸，依Amazon listing"},
+    "pixel_pitch_mm": 0.23,
+    "weight_g": 10,
+    "viewing_angle_deg": ">160",
+    "operating_temp_c": {"min": -20, "max": 60},
+    "storage_temp_c": {"min": -30, "max": 70},
+    "source": "面板/可視區域依Sino Wealth官方datasheet；PCB模組尺寸/重量/角度/溫度依Amazon listing(Hosyond賣場規格表)"
+  },
+  "pins": [
+    {"name": "GND", "function": "接地",        "direction": "input"},
+    {"name": "VCC", "function": "電源 3.3V",   "direction": "input"},
+    {"name": "SCL", "function": "I2C 時鐘",    "direction": "input"},
+    {"name": "SDA", "function": "I2C 數據",    "direction": "input"}
+  ],
+  "logic": "protocol",
+  "notes": "I2C地址預設0x3C（D/C#接地）或0x3D（D/C#接VDD）。SH1106 GDDRAM是132欄寬但面板只顯示中間128欄，寫入時欄位起始位址須設為2，否則畫面偏移；charge pump用0xAD,0x8B(內供VCC)，跟SSD1306內建的0x8D,0x14不相容，須override。VDD必須等於MCU的I/O電壓(1.65~3.3V)，與Pico的3.3V直接相容。",
+  "datasheet": {
+    "filename": "SH1106.pdf",
+    "source": "official",
+    "url": "https://cdn.sparkfun.com/assets/2/6/8/9/7/1.3inch-SH1106-OLED_Datasheet.pdf",
+    "downloaded": true
+  },
+  "product_listing": {
+    "filename": "Amazon_Listing.pdf",
+    "source": "Amazon (Hosyond, ASIN B0C3L7N917)",
+    "note": "使用者列印listing頁存檔，含賣場規格表+買家評論；買家評論獨立確認為真正SH1106(非貼標)，且不與SSD1306函式庫相容"
+  },
+  "drivers": {
+    "micropython": "drivers/micropython/oled_sh1106.py",
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-07-18",
+    "notes": "Pico(COM7, RP2040, MicroPython 1.28.0) I2C0(SDA=GP4,SCL=GP5)。scan()找到0x3C；driver上傳後執行init_display()+文字渲染(3行文字+橫線)，使用者目視確認實體螢幕顯示正常，無偏移/跑版/文字截斷，132欄offset處理正確。"
+  },
+  "added": "2026-07-18",
+  "updated": "2026-07-18"
+}
