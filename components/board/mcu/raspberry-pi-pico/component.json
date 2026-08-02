@@ -1,0 +1,70 @@
+{
+  "name": "raspberry-pi-pico",
+  "name_zh": "Raspberry Pi Pico（非Wi-Fi官方板，RP2040）",
+  "manufacturer": "Raspberry Pi Ltd",
+  "part_number": "SC0915 / SC0916（無排針版，Order Code），SC0917=Pico H(有排針，非本款)",
+  "category": "board/mcu",
+  "description": "Raspberry Pi 官方 RP2040 微控制器開發板，Non-Wi-Fi 原版（無 CYW43439），區別於 Pico W / Pico 2 / Pico 2 W",
+  "interface": ["USB", "GPIO", "ADC", "PWM", "I2C", "SPI", "UART", "PIO"],
+  "voltage": {
+    "min": 1.8,
+    "max": 5.5,
+    "unit": "V",
+    "note": "VSYS 輸入範圍(依官方datasheet 2.3節)；VBUS(Micro-USB)=5V±10%；板上SMPS降壓/升壓產生3V3供RP2040與週邊"
+  },
+  "mechanical": {
+    "outline_mm": {"w": 21, "l": 51, "thickness": 1, "note": "單面板，Rev3，依官方datasheet p.6 文字段落直接標明"},
+    "mounting_holes": {
+      "qty": 4,
+      "diameter_mm": 2.1,
+      "tolerance_mm": 0.05,
+      "spacing_x_mm": 17.78,
+      "spacing_y_mm": 48.26,
+      "inset_from_edge_x_mm": 1.61,
+      "inset_from_edge_y_mm": 1.37,
+      "note": "數量/直徑/公差/spacing_x/spacing_y/inset_x 皆為官方 Figure 3 機構圖直接標註數值（高解析度PyMuPDF渲染逐區讀取）；inset_x=1.61mm並與(21-17.78)/2計算值完全交叉驗證一致，信心度高。inset_y=1.37mm為推算值(=(51-48.26)/2)，圖上未直接印出此數字，信心度中等"
+    },
+    "pin_grid": {
+      "pitch_mm": 2.54,
+      "hole_diameter_mm": 1,
+      "note": "40主排針，0.1\"(2.54mm)間距，相容breadboard/veroboard，依官方datasheet文字段落"
+    },
+    "usb_connector": {
+      "type": "Micro-USB B",
+      "position": "懸空於頂邊外(overhanging top edge)",
+      "note": "確切開口寬度/深度未能從Figure 3標註明確判讀(圖上'8'與'11.4'兩數字量測基準不清楚)，如需精確開槽尺寸待後續查Figure 5 SMT footprint或直接量測實體"
+    },
+    "source": "Raspberry Pi Pico Datasheet 官方文件（Raspberry Pi Ltd），Chapter 2 Mechanical specification, Figure 3 (p.6)"
+  },
+  "pins_system": [
+    {"name": "VBUS", "function": "Micro-USB輸入電壓，5V(USB接上時)/0V(未接)", "direction": "input"},
+    {"name": "VSYS", "function": "主系統電源輸入，1.8~5.5V", "direction": "input"},
+    {"name": "3V3_EN", "function": "SMPS enable，內部100kΩ拉高至VSYS，拉低可關閉3.3V", "direction": "input"},
+    {"name": "3V3", "function": "板上SMPS產生的3.3V輸出，供外部電路(建議<300mA)", "direction": "output"},
+    {"name": "ADC_VREF", "function": "ADC參考電壓，由3.3V濾波產生", "direction": "input/output"},
+    {"name": "AGND", "function": "類比接地", "direction": "input"},
+    {"name": "GND", "function": "數位接地", "direction": "input"},
+    {"name": "RUN", "function": "重置腳(內部上拉)，拉低重置RP2040", "direction": "input"}
+  ],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "RP-008307-DS-2-pico-datasheet.pdf",
+    "source": "manufacturer",
+    "url": "https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-07-19",
+    "notes": "此板(COM7)在「電子手指精準點擊控制」專案長期實機運行驗證(BJT driver GP17/OLED I2C0 GP4-GP5/按鍵GP15-16)，功能面已確認正常。機構圖數據來自官方datasheet直接讀取+數學交叉驗證，非本地實測量測(按鍵板/OLED已知機構尺寸，Pico板尚未拿卡尺複驗)。"
+  },
+  "notes": "此為 Raspberry Pi Pico 原版，Non-Wi-Fi（單RP2040晶片，無CYW43439無線晶片），區別於 Pico W(有Wi-Fi)、Pico 2(RP2350)、Pico 2 W。命名與分類刻意標明「非Wi-Fi」是因Pico系列有多款板子，避免日後混淆。本專案使用的即為此款(COM7)。這是host MCU開發板本身而非週邊元件，故 drivers.micropython 留null(板子執行MicroPython韌體本身，不是被驅動的對象)。",
+  "added": "2026-07-20",
+  "updated": "2026-07-20"
+}

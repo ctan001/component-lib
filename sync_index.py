@@ -18,6 +18,7 @@ INDEX_PATH = BASE / "index.md"
 IFACE_ORDER = ["GPIO", "ADC", "PWM", "I2C", "SPI", "UART", "1-Wire", "DHT", "PIO"]
 
 CATEGORY_ORDER = [
+    "board/mcu",
     "actuator",
     "display/7seg",
     "display/lcd",

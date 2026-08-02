@@ -2,6 +2,7 @@
 
 | 分類路徑 | 說明 |
 |:--|:--|
+| `board/mcu` | 微控制器開發板本身（host板，如Pico系列），非被驅動的週邊元件 |
 | `sensor/digital` | 數位輸入感應器（GPIO HIGH/LOW 輸出） |
 | `sensor/analog` | 類比輸入感應器（ADC 電壓輸出） |
 | `sensor/dual` | 同時具備 ADC 類比和 GPIO 數位輸出 |

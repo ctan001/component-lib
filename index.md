@@ -1,10 +1,11 @@
 # component-lib 元件索引
 
-> 更新時間：2026-07-19
-> 元件總數：52
+> 更新時間：2026-08-01
+> 元件總數：53
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
 |:--|:--|:--|:--|:--|:--|
+| [raspberry-pi-pico](components/board/mcu/raspberry-pi-pico/) | Raspberry Pi Pico（非Wi-Fi官方板，RP2040） | board/mcu | USB, GPIO, ADC, PWM, I2C, SPI, UART, PIO | ❌ | ✅ |
 | [bjt-mmbt3904](components/actuator/bjt-mmbt3904/) | NPN 通用晶體 MMBT3904 | actuator | GPIO | ❌ | ⏳ |
 | [bjt-mmbt3906](components/actuator/bjt-mmbt3906/) | PNP 通用晶體 MMBT3906 | actuator | GPIO | ❌ | ⏳ |
 | [buzzer-active](components/actuator/buzzer-active/) | 有源蜂鸣器 | actuator | GPIO | ✅ | ⏳ |
