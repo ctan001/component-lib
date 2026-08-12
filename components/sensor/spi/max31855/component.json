@@ -1,0 +1,37 @@
+{
+  "name": "max31855",
+  "name_zh": "MAX31855 K型熱電偶數位轉換器",
+  "manufacturer": "Analog Devices / Maxim Integrated",
+  "part_number": "MAX31855",
+  "category": "sensor/spi",
+  "description": "Cold-Junction Compensated Thermocouple-to-Digital Converter，14-bit SPI輸出，支援K/J/N/T/S/R/E型熱電偶（本案用K型）",
+  "interface": [
+    "SPI"
+  ],
+  "voltage": {
+    "min": 3.0,
+    "max": 5.0,
+    "unit": "V"
+  },
+  "pins": [],
+  "logic": "protocol",
+  "datasheet": {
+    "filename": "MAX31855.pdf",
+    "source": "analog.com",
+    "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/max31855.pdf",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "用於 312-heat-module 專案（Pico讀case temperature），零件為Amazon B0CD84KS77 breakout板"
+  },
+  "added": "2026-08-12",
+  "updated": "2026-08-12"
+}

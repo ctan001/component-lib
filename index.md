@@ -1,7 +1,7 @@
 # component-lib 元件索引
 
 > 更新時間：2026-08-12
-> 元件總數：53
+> 元件總數：54
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
 |:--|:--|:--|:--|:--|:--|
@@ -57,6 +57,7 @@
 | [PMS5003](components/sensor/particle/pms5003/) |  | sensor/particle | U, A, R, T | ❌ | ⏳ |
 | [cc1101-e07-m1101d-sma](components/module/rf/cc1101-e07-m1101d-sma/) | CC1101 433MHz RF收發模組（E07-M1101D-SMA） | module/rf | SPI | ❌ | ⏳ |
 | [esp32-cam](components/module/camera/esp32-cam/) | ESP32-CAM WiFi攝像頭模組 | module/camera | UART, WiFi, Bluetooth, SDMMC, GPIO | ❌ | ⏳ |
+| [max31855](components/sensor/spi/max31855/) | MAX31855 K型熱電偶數位轉換器 | sensor/spi | SPI | ❌ | ⏳ |
 | [xiao-vision-ai](components/module/camera/xiao-vision-ai/) | XIAO Vision AI 攝像頭（邊緣 AI 視覺套件） | module/camera | USB-C, WiFi, Bluetooth, I2C, UART, SPI, CSI | ❌ | ⏳ |
 
 ---
