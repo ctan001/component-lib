@@ -10,10 +10,17 @@
   ],
   "voltage": {
     "min": 3.0,
-    "max": 5.0,
+    "max": 3.6,
     "unit": "V"
   },
-  "pins": [],
+  "pins": [
+    {"name": "Vin", "function": "電源輸入 3.0-3.6V（不可接5V）", "direction": "input"},
+    {"name": "GND", "function": "接地", "direction": "input"},
+    {"name": "CLK", "function": "SPI SCK", "direction": "input"},
+    {"name": "DO", "function": "SPI資料輸出(MISO)", "direction": "output"},
+    {"name": "CS", "function": "晶片選擇(active low)", "direction": "input"},
+    {"name": "3V0", "function": "未知用途，疑似regulator輸出腳，本案未接", "direction": "unknown"}
+  ],
   "logic": "protocol",
   "datasheet": {
     "filename": "MAX31855.pdf",
@@ -22,16 +29,16 @@
     "downloaded": true
   },
   "drivers": {
-    "micropython": null,
+    "micropython": "drivers/micropython/max31855.py",
     "circuitpython": null,
     "arduino": null
   },
   "verification": {
-    "status": "pending",
-    "platform": null,
-    "date": null,
-    "notes": "用於 312-heat-module 專案（Pico讀case temperature），零件為Amazon B0CD84KS77 breakout板"
+    "status": "verified",
+    "platform": "micropython-pico",
+    "date": "2026-08-13",
+    "notes": "透過ApexTester1執行。接線：CLK->GP2(SPI0 SCK), DO->GP0(SPI0 RX), CS->GP1, Vin->3V3(OUT)。實測case(TC)~20.5C/internal(CJ)~25.6C，讀值穩定fault=False。熱電偶斷路時正確回報OC fault(railed 2047.75C，與datasheet吻合)。"
   },
   "added": "2026-08-12",
-  "updated": "2026-08-12"
+  "updated": "2026-08-13"
 }

@@ -1,0 +1,43 @@
+{
+  "name": "mosfet-switch-f5305s",
+  "name_zh": "F5305S 隔離型 MOSFET 開關模組（HW-548）",
+  "manufacturer": "unknown（F5305S晶片為IR/Infineon，模組為常見公板clone，板上silkscreen印HW-548）",
+  "part_number": "HW-548",
+  "category": "actuator",
+  "description": "PC817光耦合器隔離的F5305S功率MOSFET開關模組，數位/PWM訊號控制高功率DC負載通斷",
+  "interface": [
+    "GPIO",
+    "PWM"
+  ],
+  "voltage": {
+    "min": 3.0,
+    "max": 20.0,
+    "unit": "V",
+    "note": "此為輸入(trigger)側電壓範圍；輸出(負載)側另為5-36V"
+  },
+  "pins": [
+    {"name": "IN (trigger側2-pin端子座)", "function": "數位高/低電位或PWM訊號輸入，3-20V，約5mA。極性未知(板上無標示)，接反安全(LED不亮/不導通，非破壞性)", "direction": "input"},
+    {"name": "OUT (負載側4-pin端子座)", "function": "高功率DC負載開關輸出，5-36V，連續電流<5A(超過需散熱片，上限20A)", "direction": "output"}
+  ],
+  "logic": "pwm",
+  "datasheet": {
+    "filename": null,
+    "source": "other",
+    "url": null,
+    "downloaded": false,
+    "note": "F5305S晶片本身為現成MOSFET，賣場規格頁: makerselectronics.com/product/f5305s-mosfet-module-hw-548/, otronic.nl/en/mosfet-3v-24v-electronic-switch-f5305s.html"
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "2026-08-13: GPIO trigger訊號smoke test通過(GP6/GP7各接一顆，24V負載電源未開情況下確認訊號送達)，PWM調功率+24V實際負載驅動尚未驗證，故仍列pending"
+  },
+  "added": "2026-08-13",
+  "updated": "2026-08-13"
+}

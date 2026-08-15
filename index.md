@@ -1,7 +1,7 @@
 # component-lib 元件索引
 
-> 更新時間：2026-08-12
-> 元件總數：54
+> 更新時間：2026-08-15
+> 元件總數：55
 
 | 元件 | 中文名 | 類別 | 介面 | MicroPython Driver | 驗證狀態 |
 |:--|:--|:--|:--|:--|:--|
@@ -10,6 +10,7 @@
 | [bjt-mmbt3906](components/actuator/bjt-mmbt3906/) | PNP 通用晶體 MMBT3906 | actuator | GPIO | ❌ | ⏳ |
 | [buzzer-active](components/actuator/buzzer-active/) | 有源蜂鸣器 | actuator | GPIO | ✅ | ⏳ |
 | [ir-emitter-tsal](components/actuator/ir-emitter-tsal/) | 红外发射模块 TSAL6100/6200 + BJT 驱动 | actuator | GPIO, PWM | ❌ | ⏳ |
+| [mosfet-switch-f5305s](components/actuator/mosfet-switch-f5305s/) | F5305S 隔離型 MOSFET 開關模組（HW-548） | actuator | GPIO, PWM | ❌ | ⏳ |
 | [motor-130](components/actuator/motor-130/) | 130电机模块 | actuator | GPIO | ✅ | ⏳ |
 | [servo](components/actuator/servo/) | 伺服舵机 | actuator | PWM | ✅ | ⏳ |
 | [speaker-8002b](components/actuator/speaker-8002b/) | 8002B功放喇叭模块 | actuator | PWM | ✅ | ⏳ |
@@ -57,7 +58,7 @@
 | [PMS5003](components/sensor/particle/pms5003/) |  | sensor/particle | U, A, R, T | ❌ | ⏳ |
 | [cc1101-e07-m1101d-sma](components/module/rf/cc1101-e07-m1101d-sma/) | CC1101 433MHz RF收發模組（E07-M1101D-SMA） | module/rf | SPI | ❌ | ⏳ |
 | [esp32-cam](components/module/camera/esp32-cam/) | ESP32-CAM WiFi攝像頭模組 | module/camera | UART, WiFi, Bluetooth, SDMMC, GPIO | ❌ | ⏳ |
-| [max31855](components/sensor/spi/max31855/) | MAX31855 K型熱電偶數位轉換器 | sensor/spi | SPI | ❌ | ⏳ |
+| [max31855](components/sensor/spi/max31855/) | MAX31855 K型熱電偶數位轉換器 | sensor/spi | SPI | ✅ | ✅ |
 | [xiao-vision-ai](components/module/camera/xiao-vision-ai/) | XIAO Vision AI 攝像頭（邊緣 AI 視覺套件） | module/camera | USB-C, WiFi, Bluetooth, I2C, UART, SPI, CSI | ❌ | ⏳ |
 
 ---
