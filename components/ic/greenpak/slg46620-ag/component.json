@@ -1,0 +1,75 @@
+{
+  "name": "slg46620-ag",
+  "name_zh": "GreenPAK 車規版 SLG46620-A (TSSOP)",
+  "manufacturer": "Renesas Electronics Corporation",
+  "part_number": "SLG46620-AG",
+  "category": "ic/greenpak",
+  "description": "GreenPAK SLG46620 車規版本(AEC-Q100)，-40~105°C，20-pin TSSOP（0.65mm pitch）——⚠️此車規版本官方只列TSSOP封裝，沒有STQFN替代選項。18 GPIO、8-bit SAR ADC×1(含PGA)、6 顆類比比較器、26 LUT、10 Counters/Delays、12 DFF/Latch、3 PWM、SPI通訊、內建2xDAC、單電源(無VDD2)。",
+  "interface": [
+    "SPI",
+    "GPIO",
+    "ADC"
+  ],
+  "voltage": {
+    "min": 1.71,
+    "max": 3.6,
+    "unit": "V",
+    "note": "單電源，無VDD2；Operating Temp -40~105°C。來源：datasheet Table 5 Recommended Operating Conditions, Rev 3.15"
+  },
+  "pins": [
+    {"name": "1 / VDD", "function": "電源", "direction": "input"},
+    {"name": "2 / GPI", "function": "僅輸入，可設External Reset / ADC CLK", "direction": "input"},
+    {"name": "3 / GPIO", "function": "GPIO with OE，ACMP4(+)", "direction": "bidirectional"},
+    {"name": "4 / GPIO", "function": "GPIO，ACMP5(+)", "direction": "bidirectional"},
+    {"name": "5 / GPIO", "function": "GPIO with OE，ACMP5(-)", "direction": "bidirectional"},
+    {"name": "6 / GPIO", "function": "GPIO，ACMP0(+)/ACMP1(+)/ACMP2(+)/ACMP3(+)/ACMP4(+)", "direction": "bidirectional"},
+    {"name": "7 / GPIO", "function": "GPIO with OE，ACMP0(-)/ACMP1(-)/PGA_OUT", "direction": "bidirectional"},
+    {"name": "8 / GPIO", "function": "GPIO，PGA(+)", "direction": "bidirectional"},
+    {"name": "9 / GPIO", "function": "GPIO with OE，PGA(-)", "direction": "bidirectional"},
+    {"name": "10 / GPIO", "function": "GPIO with OE，ACMP0(-)/ACMP1(-)/ACMP2(-)/ACMP3(-)/ACMP4(-)，Super Drive IO", "direction": "bidirectional"},
+    {"name": "11 / GND", "function": "接地", "direction": "input"},
+    {"name": "12 / GPIO", "function": "GPIO，ACMP1(+)，Super Drive IO", "direction": "bidirectional"},
+    {"name": "13 / GPIO", "function": "GPIO with OE，ACMP2(+)/ACMP3(+)", "direction": "bidirectional"},
+    {"name": "14 / GPIO", "function": "GPIO with OE，ACMP2(-)", "direction": "bidirectional"},
+    {"name": "15 / GPIO", "function": "GPIO，ACMP3(+)/ACMP4(+)", "direction": "bidirectional"},
+    {"name": "16 / GPIO", "function": "GPIO with OE", "direction": "bidirectional"},
+    {"name": "17 / GPIO", "function": "GPIO", "direction": "bidirectional"},
+    {"name": "18 / GPIO", "function": "GPIO with OE，Vref OUT1", "direction": "bidirectional"},
+    {"name": "19 / GPIO", "function": "GPIO with OE，Vref OUT0", "direction": "bidirectional"},
+    {"name": "20 / GPIO", "function": "GPIO", "direction": "bidirectional"}
+  ],
+  "logic": "programmable",
+  "datasheet": {
+    "filename": "SLG46620A_datasheet.pdf",
+    "source": "manufacturer",
+    "url": "https://www.renesas.com/en/document/dst/slg46620a-datasheet",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "GreenPAK 用 GUI 配置NVM，非程式碼控制。⚠️2026-08-15查證時DigiKey/Mouser兩邊庫存皆為0，下單前需另查lead time。Pin table與供電範圍已對照datasheet Rev 3.15 (2025-04-07) Pinout章節+Table 5核實，2026-08-15。"
+  },
+  "sourcing": {
+    "queried_date": "2026-08-15",
+    "digikey": {
+      "distributor_pn": "1695-SLG46620-AGCT-ND",
+      "stock": 0,
+      "lifecycle": "Active",
+      "price_qty1": 2.86
+    },
+    "mouser": {
+      "distributor_pn": "724-SLG46620-AG",
+      "stock": 0,
+      "price_qty1": 2.85
+    }
+  },
+  "added": "2026-08-15",
+  "updated": "2026-08-15"
+}

@@ -1,0 +1,58 @@
+{
+  "name": "slg46620g",
+  "name_zh": "GreenPAK 可規劃混合訊號IC SLG46620 (TSSOP)",
+  "manufacturer": "Renesas Electronics Corporation",
+  "part_number": "SLG46620G",
+  "category": "ic/greenpak",
+  "description": "GreenPAK 經典款，20-pin TSSOP（0.65mm pitch，好手焊）。18 GPIO、8-bit SAR ADC×1、6 顆類比比較器、26 LUT、10 Counters/Delays、12 DFF/Latch、3 PWM、SPI 通訊。用 Go Configure Software Hub GUI 配置燒錄 NVM，不寫韌體。",
+  "interface": [
+    "SPI",
+    "GPIO",
+    "ADC"
+  ],
+  "voltage": {
+    "min": 1.8,
+    "max": 5.5,
+    "unit": "V"
+  },
+  "pins": [
+    {"name": "1 / VDD", "function": "電源", "direction": "input"},
+    {"name": "11 / GND", "function": "接地", "direction": "input"},
+    {"name": "2 / GPI", "function": "僅輸入（無法輸出），可設External Reset/ADC CLK", "direction": "input"},
+    {"name": "3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20 / GPIO", "function": "可規劃多功能I/O，實際功能依GreenPAK Designer設計決定（LUT/ACMP/ADC/DAC/PWM等macrocell皆可路由到任一GPIO）", "direction": "bidirectional"}
+  ],
+  "logic": "programmable",
+  "datasheet": {
+    "filename": "SLG46620_datasheet.pdf",
+    "source": "manufacturer",
+    "url": "https://www.renesas.com/us/en/document/dst/slg46620-datasheet",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "GreenPAK 用 GUI (Go Configure Software Hub) 配置NVM，不是寫程式碼控制，無傳統MicroPython driver適用。Pin 1/2/11已依官方datasheet Pin Description表確認，其餘GPIO功能待實際設計案例配置後才確定。"
+  },
+  "sourcing": {
+    "queried_date": "2026-08-15",
+    "digikey": {
+      "distributor_pn": "1695-SLG46620GCT-ND",
+      "stock": 5566,
+      "lifecycle": "Active",
+      "price_qty1": 1.62
+    },
+    "mouser": {
+      "distributor_pn": "724-SLG46620G",
+      "stock": 9145,
+      "price_qty1": 1.62
+    }
+  },
+  "added": "2026-08-15",
+  "updated": "2026-08-15"
+}

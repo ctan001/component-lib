@@ -1,0 +1,74 @@
+{
+  "name": "slg46826g",
+  "name_zh": "GreenPAK 可規劃混合訊號IC SLG46826 (TSSOP)",
+  "manufacturer": "Renesas Electronics Corporation",
+  "part_number": "SLG46826G",
+  "category": "ic/greenpak",
+  "description": "GreenPAK 經典款，20-pin TSSOP（0.65mm pitch）。15 IO(IO0-IO14)、4 顆類比比較器(2xACMPxH高速+2xACMPxL低功耗)、內建類比溫度感測器、2-kbit I²C相容EEPROM模擬、19 LUT、8 Counters/Delays、17 DFF/Latch、I²C通訊、Dual Supply、MTP(多次可程式)。用 Go Configure Software Hub GUI 配置燒錄，不寫韌體。",
+  "interface": [
+    "I2C",
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 2.3,
+    "max": 5.5,
+    "unit": "V",
+    "note": "VDD 2.3-5.5V(NVM寫入/抹除時需2.5-5.5V)；VDD2(雙電源域) 1.71-5.5V且VDD2≤VDD；Operating Temp -40~85°C。來源：datasheet Table 5 Recommended Operating Conditions, Rev 3.25"
+  },
+  "pins": [
+    {"name": "1 / VDD", "function": "電源；同時可做ACMP0H(+)/ACMP1H(+)/ACMP2L(+)/ACMP3L(+)輸入", "direction": "input"},
+    {"name": "2 / IO0", "function": "GPIO", "direction": "bidirectional"},
+    {"name": "3 / IO1", "function": "GPIO 或 Vref IN", "direction": "bidirectional"},
+    {"name": "4 / IO2", "function": "GPIO，SLA_0(I2C從位址設定)", "direction": "bidirectional"},
+    {"name": "5 / IO3", "function": "GPIO，SLA_1", "direction": "bidirectional"},
+    {"name": "6 / IO4", "function": "GPIO，SLA_2", "direction": "bidirectional"},
+    {"name": "7 / IO5", "function": "GPIO，SLA_3", "direction": "bidirectional"},
+    {"name": "8 / SCL", "function": "I2C 時脈", "direction": "bidirectional"},
+    {"name": "9 / SDA", "function": "I2C 資料", "direction": "bidirectional"},
+    {"name": "10 / IO6", "function": "GPO(僅輸出)", "direction": "output"},
+    {"name": "11 / GND", "function": "接地", "direction": "input"},
+    {"name": "12 / IO7", "function": "GPO(僅輸出)", "direction": "output"},
+    {"name": "13 / IO8", "function": "GPIO", "direction": "bidirectional"},
+    {"name": "14 / VDD2", "function": "第二電源域(Dual Supply)，1.71-5.5V且≤VDD", "direction": "input"},
+    {"name": "15 / IO9", "function": "GPIO 或 Vref_OUT1", "direction": "bidirectional"},
+    {"name": "16 / IO10", "function": "GPIO 或 Vref_OUT0", "direction": "bidirectional"},
+    {"name": "17 / IO11", "function": "GPIO 或 ACMP3L_IN", "direction": "bidirectional"},
+    {"name": "18 / IO12", "function": "GPIO 或 ACMP2L_IN", "direction": "bidirectional"},
+    {"name": "19 / IO13", "function": "GPIO 或 ACMP1H_IN", "direction": "bidirectional"},
+    {"name": "20 / IO14", "function": "GPIO 或 ACMP0H_IN", "direction": "bidirectional"}
+  ],
+  "logic": "programmable",
+  "datasheet": {
+    "filename": "SLG46826_datasheet.pdf",
+    "source": "manufacturer",
+    "url": "https://www.renesas.com/us/en/document/dst/slg46826-datasheet",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "GreenPAK 用 GUI (Go Configure Software Hub) 配置NVM，不是寫程式碼控制，無傳統MicroPython driver適用。Pin table與供電範圍已對照datasheet Rev 3.25 (2026-08-03) TSSOP-20L章節+Table 5核實，2026-08-15。此rev比DigiKey/Mouser當初回傳的datasheet連結快取版本(3.24/舊)更新，內容以此為準。"
+  },
+  "sourcing": {
+    "queried_date": "2026-08-15",
+    "digikey": {
+      "distributor_pn": "1695-SLG46826GCT-ND",
+      "stock": 4591,
+      "lifecycle": "Active",
+      "price_qty1": 2.13
+    },
+    "mouser": {
+      "distributor_pn": "724-SLG46826G",
+      "stock": 1664,
+      "price_qty1": 2.13
+    }
+  },
+  "added": "2026-08-15",
+  "updated": "2026-08-15"
+}

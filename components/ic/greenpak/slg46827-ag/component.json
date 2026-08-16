@@ -1,0 +1,74 @@
+{
+  "name": "slg46827-ag",
+  "name_zh": "GreenPAK 車規版 SLG46827-A (TSSOP，DigiKey判NFND)",
+  "manufacturer": "Renesas Electronics Corporation",
+  "part_number": "SLG46827-AG",
+  "category": "ic/greenpak",
+  "description": "GreenPAK SLG46827 車規版本(AEC-Q100)，-40~105°C，20-pin TSSOP（0.65mm pitch）——⚠️此車規版本官方只列TSSOP封裝，沒有STQFN替代選項。15 IO、4 顆類比比較器(2xACMPxH+2xACMPxL)、內建類比溫度感測器、In-System Debug、19 LUT、8 Counters/Delays、17 DFF/Latch、I²C通訊、Dual Supply。⚠️DigiKey已標示Not For New Designs，新設計不建議選用。",
+  "interface": [
+    "I2C",
+    "GPIO"
+  ],
+  "voltage": {
+    "min": 2.3,
+    "max": 5.5,
+    "unit": "V",
+    "note": "VDD 2.3-5.5V(NVM寫入/抹除時需2.5-5.5V)；VDD2(雙電源域) 1.71-5.5V且VDD2≤VDD；Operating Temp -40~105°C。來源：datasheet Table 5 Recommended Operating Conditions, Rev 3.16"
+  },
+  "pins": [
+    {"name": "1 / IO14", "function": "GPIO 或 ACMP0H_IN，also EXT_RESET", "direction": "bidirectional"},
+    {"name": "2 / IO13", "function": "GPIO 或 ACMP1H_IN", "direction": "bidirectional"},
+    {"name": "3 / IO12", "function": "GPIO 或 ACMP2L_IN", "direction": "bidirectional"},
+    {"name": "4 / IO11", "function": "GPIO 或 ACMP3L_IN", "direction": "bidirectional"},
+    {"name": "5 / IO10", "function": "GPIO 或 Vref_OUT0", "direction": "bidirectional"},
+    {"name": "6 / IO9", "function": "GPIO 或 Vref_OUT1", "direction": "bidirectional"},
+    {"name": "7 / VDD2", "function": "第二電源域(Dual Supply)，1.71-5.5V且≤VDD", "direction": "input"},
+    {"name": "8 / IO8", "function": "GPIO", "direction": "bidirectional"},
+    {"name": "9 / IO7", "function": "GPO(僅輸出)", "direction": "output"},
+    {"name": "10 / GND", "function": "接地", "direction": "input"},
+    {"name": "11 / IO6", "function": "GPO(僅輸出)", "direction": "output"},
+    {"name": "12 / SDA", "function": "I2C 資料", "direction": "bidirectional"},
+    {"name": "13 / SCL", "function": "I2C 時脈", "direction": "bidirectional"},
+    {"name": "14 / IO5", "function": "GPIO，SLA_3(I2C從位址設定)", "direction": "bidirectional"},
+    {"name": "15 / IO4", "function": "GPIO，SLA_2", "direction": "bidirectional"},
+    {"name": "16 / IO3", "function": "GPIO，SLA_1", "direction": "bidirectional"},
+    {"name": "17 / IO2", "function": "GPIO，SLA_0", "direction": "bidirectional"},
+    {"name": "18 / IO1", "function": "GPIO 或 Vref IN", "direction": "bidirectional"},
+    {"name": "19 / IO0", "function": "GPIO", "direction": "bidirectional"},
+    {"name": "20 / VDD", "function": "電源", "direction": "input"}
+  ],
+  "logic": "programmable",
+  "datasheet": {
+    "filename": "SLG46827A_datasheet.pdf",
+    "source": "manufacturer",
+    "url": "https://www.renesas.com/us/en/document/dst/slg46827a-datasheet?r=1563486",
+    "downloaded": true
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "pending",
+    "platform": null,
+    "date": null,
+    "notes": "⛔2026-08-15查證：DigiKey此料號lifecycle=\"Not For New Designs\"、庫存0。Mouser同MPN仍有2649顆庫存但無法確認是否為同一lifecycle狀態，新設計不建議選用，僅供既有設計維護參考。GreenPAK用GUI配置NVM，非程式碼控制。Pin table與供電範圍已對照datasheet Rev 3.16 (2025-09-09) Pinout章節+Table 5核實，2026-08-15。"
+  },
+  "sourcing": {
+    "queried_date": "2026-08-15",
+    "digikey": {
+      "distributor_pn": "1564-SLG46827-AGTR-ND",
+      "stock": 0,
+      "lifecycle": "Not For New Designs",
+      "price_qty1": null
+    },
+    "mouser": {
+      "distributor_pn": "724-SLG46827-AG",
+      "stock": 2649,
+      "price_qty1": 3.15
+    }
+  },
+  "added": "2026-08-15",
+  "updated": "2026-08-15"
+}

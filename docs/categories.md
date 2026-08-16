@@ -19,3 +19,4 @@
 | `display/oled` | OLED 有機電激發光顯示 |
 | `module/rtc` | 實時時鐘 |
 | `module/rfid` | RFID 讀卡器 |
+| `ic/greenpak` | Renesas GreenPAK 可規劃混合訊號IC（GUI配置NVM，非傳統driver驅動元件） |
