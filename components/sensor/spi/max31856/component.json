@@ -1,0 +1,61 @@
+{
+  "name": "max31856",
+  "name_zh": "MAX31856 高精度熱電偶數位轉換器（含線性化）",
+  "manufacturer": "Analog Devices / Maxim Integrated",
+  "part_number": "MAX31856MUD+",
+  "category": "sensor/spi",
+  "description": "Precision Thermocouple to Digital Converter with Linearization，19-bit SPI輸出，支援B/E/J/K/N/R/S/T型熱電偶，內建50/60Hz數位陷波濾波(Noise Rejection 91dB)+±45V輸入保護，比MAX31855多一層數位濾波(MAX31855只能靠外部類比電容)",
+  "interface": [
+    "SPI"
+  ],
+  "voltage": {
+    "min": 3.0,
+    "max": 3.6,
+    "unit": "V",
+    "note": "AVDD/DVDD各自supply，可共用同一路3.0-3.6V"
+  },
+  "package": "14-pin TSSOP（datasheet p.29 Ordering Information確認，非TQFN，MPN後綴MUD不能直接猜package）",
+  "pins_note": "下列為實物breakout板silkscreen命名(見photos/)，跟裸晶片datasheet pin名稱不完全對應，詳細對照表見README.md",
+  "pins": [
+    {"name": "VIN", "function": "電源輸入，經板上regulator降壓，非直接AVDD/DVDD", "direction": "input"},
+    {"name": "3Vo", "function": "3.3V輸出(regulator輸出腳)，用途待查證", "direction": "output"},
+    {"name": "GND", "function": "接地(板上AGND/DGND應已短接)", "direction": "input"},
+    {"name": "SDO", "function": "SPI資料輸出(MISO)", "direction": "output"},
+    {"name": "SCK", "function": "SPI序列時脈輸入", "direction": "input"},
+    {"name": "SDI", "function": "SPI資料輸入(MOSI)——MAX31856可讀寫暫存器，非MAX31855的唯讀架構", "direction": "input"},
+    {"name": "CS", "function": "晶片選擇(active low)", "direction": "input"},
+    {"name": "FLT", "function": "故障輸出(=datasheet的FAULT pin)", "direction": "output"},
+    {"name": "DRDY", "function": "Data Ready輸出(active low)", "direction": "output"},
+    {"name": "+/-", "function": "熱電偶T+/T-輸入，board上是焊接孔，需自行焊上附的2-pin端子座", "direction": "input"}
+  ],
+  "logic": "protocol",
+  "noise_handling": {
+    "digital_filter": "內建50Hz/60Hz Line Frequency Filtering，Noise Rejection 91dB (datasheet p.5)，MAX31855沒有這項功能",
+    "recommended_caps": "T+/T-間100nF差動電容(datasheet p.27，注意跟MAX31855建議的10nF不同值)；高雜訊環境加T+對GND、T-對GND各一顆10nF；AVDD/DVDD各自0.1µF旁路電容",
+    "input_protection": "±45V input protection (T+/T-/BIAS)，MAX31855無此保護"
+  },
+  "datasheet": {
+    "filename": "MAX31856.pdf",
+    "source": "digikey_datasheet_url_mirror",
+    "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/max31856.pdf",
+    "downloaded": true,
+    "verified_via": "DigiKey查詢MPN MAX31856MUD+的datasheet_url欄位確認(2026-08-19)，見[[feedback_datasheet_source_official]]"
+  },
+  "sourcing": {
+    "digikey": {"mpn": "MAX31856MUD+T", "distributor_pn": "MAX31856MUD+TCT-ND", "stock_2026_08_19": 12254, "lifecycle": "Active"},
+    "mouser": {"mpn": "MAX31856MUD+", "distributor_pn": "700-MAX31856MUD+", "stock_2026_08_19": 7035}
+  },
+  "drivers": {
+    "micropython": null,
+    "circuitpython": null,
+    "arduino": null
+  },
+  "verification": {
+    "status": "not_verified",
+    "platform": null,
+    "date": null,
+    "notes": "已下單，2026-08-20預計到貨(2026-08-19記錄)。評估中：312-heat-module專案懷疑MAX31855搭配已內建的10nF+0.1µF電容仍有雜訊導致間歇性fault(見[[project_312_heat_module]])，考慮換用MAX31856(內建數位陷波濾波)是否能改善，待到貨接線實測驗證。photos/裡目前是賣場商品照，非實拍，到貨後要換成實拍照片。"
+  },
+  "added": "2026-08-19",
+  "updated": "2026-08-19"
+}
