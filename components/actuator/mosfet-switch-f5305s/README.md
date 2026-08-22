@@ -54,6 +54,11 @@ heater2.value(0)
 [[project_312_heat_module]] — 每支40W/24V cartridge heater各配一顆本模組獨立驅動，
 GP6→Heater1、GP7→Heater2。
 
+## 外殼設計
+
+`100_Projects/active/長期維護_ETC/3D設計/樂高盒/HW548_FET模組盒/project.md`
+——AI 3D Printing Pipeline 的第一個真實驗證案例，待 Jerry 量測尺寸後開始設計。
+
 ## 驗證狀態
 
 ⏳ pending — 2026-08-13：GPIO trigger訊號smoke test通過（24V負載電源未開，僅驗證訊號送達），
