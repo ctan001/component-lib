@@ -46,16 +46,16 @@
     "mouser": {"mpn": "MAX31856MUD+", "distributor_pn": "700-MAX31856MUD+", "stock_2026_08_19": 7035}
   },
   "drivers": {
-    "micropython": null,
+    "micropython": "drivers/micropython/max31856.py",
     "circuitpython": null,
     "arduino": null
   },
   "verification": {
-    "status": "not_verified",
-    "platform": null,
+    "status": "driver_written_not_hardware_tested",
+    "platform": "YD-RP2040 (312-heat-module專案)",
     "date": null,
-    "notes": "已下單，2026-08-20預計到貨(2026-08-19記錄)。評估中：312-heat-module專案懷疑MAX31855搭配已內建的10nF+0.1µF電容仍有雜訊導致間歇性fault(見[[project_312_heat_module]])，考慮換用MAX31856(內建數位陷波濾波)是否能改善，待到貨接線實測驗證。photos/裡目前是賣場商品照，非實拍，到貨後要換成實拍照片。"
+    "notes": "硬體已到貨並焊接完成(2026-08-24)。driver已寫完(bit-field對照datasheet 8組範例值程式驗證過)，經Codex review修正過SPI/初始化安全性，尚未上機跑smoke test。跟MAX31855差異：沒有SCG/SCV分開故障位元，只有OVUV。photos/裡目前仍是賣場商品照，非實拍，待補實拍照片。"
   },
   "added": "2026-08-19",
-  "updated": "2026-08-19"
+  "updated": "2026-08-24"
 }

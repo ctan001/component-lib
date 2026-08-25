@@ -1,3 +1,13 @@
+# 檔名: max31855.py
+# 用途: MAX31855 K-type熱電偶轉換器 MicroPython driver（SPI，唯讀）
+# 相依檔案: 無(僅依賴MicroPython內建的machine模組)
+# 參考接線(312-heat-module專案實際使用，2026-08-13實機驗證通過，見component-lib README.md)：
+#   CLK->GP2(SPI0 SCK) | DO->GP0(SPI0 RX/MISO) | CS->GP1(SPI0 CSn，軟體GPIO)
+#   Vin->Pico 3V3(OUT) | GND->GND
+#   本晶片唯讀，沒有MOSI/SDI腳位，建構子的mosi參數只是滿足machine.SPI()的介面需求，實際不接線。
+#   其他專案要重用時，接線依實際GPIO配置調整，上面是這顆晶片在本專案的參考範例，不是固定值。
+# 建立日期: 2026-08-13
+# 最後修改日期: 2026-08-24
 from machine import Pin, SPI
 
 # 32-bit frame 的 bit 欄位定義（datasheet Table 2, p.10；完整協定說明見 component-lib 知識分層原則，

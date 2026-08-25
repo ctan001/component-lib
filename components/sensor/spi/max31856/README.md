@@ -5,7 +5,7 @@
 **工作電壓**：AVDD/DVDD 各 3.0–3.6 V
 **邏輯**：protocol
 **Package**：14-pin TSSOP（MPN: `MAX31856MUD+`，datasheet p.29 Ordering Information 確認）
-**狀態**：評估中，尚未購買/實測（見下方背景）
+**狀態**：硬體已到貨並焊接完成，driver已寫完，待實機smoke test（見下方背景）
 
 ## 描述
 
@@ -53,8 +53,20 @@ Precision Thermocouple to Digital Converter with Linearization，19-bit SPI，
 
 ## Driver
 
-尚未撰寫，待硬體到貨後開始。
+[`drivers/micropython/max31856.py`](drivers/micropython/max31856.py) — class-based，介面仿照`max31855.py`同一套風格(`spi_id`參數避免寫死SPI bus)。
+
+**關鍵類別/函式：**
+- `MAX31856(sck, mosi, miso, cs, spi_id=0, baudrate=1_000_000, notch_50hz=False)`：建構子會走兩階段初始化（Normally Off模式下設定CR0/CR1並readback驗證 → 才切CMODE=1啟動自動連續轉換），寫壞/接線錯/晶片未上電會直接丟`RuntimeError`，不會靜默失敗。
+- `.read()` → `(tc_temp_c, cj_temp_c, open_fault, ovuv_fault, cj_range_fault, tc_range_fault, fault_status_raw)`：一次multibyte SPI read讀CJTH..SR六個register(0Ah-0Fh)確保同一輪轉換的數值一致。
+
+**已知限制：**
+- 跟MAX31855的關鍵差異：**沒有SCG(短路對地)/SCV(短路對電源)分開的故障位元**，只有單一OVUV(過/欠壓不分方向)——呼叫端(main.py)原本的`_tc_fault_label(oc, scg, scv)`三分類邏輯無法直接沿用，需重新設計。
+- OVUV fault發生時datasheet記載conversion會被暫停，此時`read()`回傳的溫度值可能是舊值，呼叫端應優先檢查`ovuv_fault`。
+- 不設定MASK register(02h)：本driver純SPI輪詢，沒有接硬體FAULT/DRDY pin（見接線報告）。
+- 初始化後有250ms等待(含開路偵測時間margin)，`__init__`回傳前才會有第一筆有效轉換。
+
+**Codex review 過**：資料正確性(bit-field對照datasheet 8組範例值程式驗證)+SPI時序(CS用try/finally包起來避免exception卡在low)+初始化安全性(readback驗證)。
 
 ## 驗證狀態
 
-❌ not_verified — 尚未購買硬體，此條目目前只有 datasheet 規格研究，無實測資料。
+🟡 driver_written_not_hardware_tested — 硬體已到貨焊接完成，接線已依接線報告規劃（另一個repo：`100_Projects/active/Microcontroller/312-heat-module/report/MAX31856_Wiring_Report_v1.docx`），driver寫完並經Codex review，**尚未上機跑smoke test**。
