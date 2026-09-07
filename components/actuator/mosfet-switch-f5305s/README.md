@@ -25,6 +25,21 @@ PWM 訊號觸發 optocoupler LED，驅動 MOSFET 導通/截止，可控制高功
 **⚠️ Trigger輸入極性未知**：兩顆screw孔沒有標示哪個是LED陽極/陰極。這是安全的不確定性——
 接反的後果只是LED不亮、MOSFET不導通，不會燒毀任何東西。實接時如果沒反應，對調兩條線即可。
 
+## 核心 FET + Datasheet（2026-09-06 補）
+
+Mantech 產品頁的板面 silk OCR 顯示核心元件是 **IRF5305S**（International Rectifier / 現 Infineon）：
+- **P-channel** HEXFET，VDSS **−55V**，RDS(on) **0.06Ω @ VGS=−10V**，ID **−31A**，**D2PAK (TO-263)**，VGS 上限 ±20V
+- **非 logic-level** — 要 ~−10V Vgs 才全開，所以模組才需要 PC817 光耦 + 負載側 5–36V 來拉 gate，不能用 MCU 3.3V 直驅
+
+`datasheet/` 內：
+| 檔 | 內容 |
+|---|---|
+| `IRF5305S_International-Rectifier_PD-95957.pdf` | 核心 FET 官方 datasheet（IR PD-95957, 2005）|
+| `HW-548_product-sheet_mantech.pdf` / `.md` | 模組賣場產品頁：有 silk 標示（OUT+/OUT−、DC+/DC−、IRF5305S、PC817）與兩條 trigger 極性說明，**但沒有電路圖** |
+| `F5305S-VB_vbsemi_equivalent-part.pdf` / `.md` | VBsemi 同名 F5305S（P-ch −60V）等效料，非板上實際晶片，僅供對照 |
+
+**⚠️ 沒有公開電路圖**：多方搜尋確認 HW-548 這類公板 clone 沒有釋出 schematic，要靠實物 reverse engineer。板面 silk 寫「Low-Side Switch」，但 P-channel 拓樸下這說法存疑 —— 一律以逆推出來的實際線路為準。用於 [[project_msa312_htol_thermal_control]] 時會依逆推線路展開板上每 channel ×2 的版本並另選 opto + FET（不一定沿用 IRF5305S 這顆 2005 大封裝 P-ch）。
+
 ## 規格來源
 
 makerselectronics.com/product/f5305s-mosfet-module-hw-548/ 與 otronic.nl/en/mosfet-3v-24v-electronic-switch-f5305s.html

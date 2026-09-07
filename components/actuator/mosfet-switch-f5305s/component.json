@@ -1,7 +1,7 @@
 {
   "name": "mosfet-switch-f5305s",
   "name_zh": "F5305S 隔離型 MOSFET 開關模組（HW-548）",
-  "manufacturer": "unknown（F5305S晶片為IR/Infineon，模組為常見公板clone，板上silkscreen印HW-548）",
+  "manufacturer": "模組=常見公板clone(板上silkscreen印HW-548)；核心FET確認為 IRF5305S(International Rectifier / 現Infineon)——來源Mantech產品頁silk標示。IRF5305S = P-channel HEXFET, VDSS -55V, RDS(on) 0.06Ω @VGS=-10V, ID -31A, D2PAK(TO-263), 非logic-level(需~-10V Vgs全開，故模組用PC817光耦+負載側5-36V來拉gate)",
   "part_number": "HW-548",
   "category": "actuator",
   "description": "PC817光耦合器隔離的F5305S功率MOSFET開關模組，數位/PWM訊號控制高功率DC負載通斷",
@@ -21,11 +21,11 @@
   ],
   "logic": "pwm",
   "datasheet": {
-    "filename": null,
-    "source": "other",
-    "url": null,
-    "downloaded": false,
-    "note": "F5305S晶片本身為現成MOSFET，賣場規格頁: makerselectronics.com/product/f5305s-mosfet-module-hw-548/, otronic.nl/en/mosfet-3v-24v-electronic-switch-f5305s.html"
+    "filename": "datasheet/IRF5305S_International-Rectifier_PD-95957.pdf",
+    "source": "manufacturer",
+    "url": "https://www.infineon.com/cms/en/product/power/mosfet/p-channel/irf5305s/",
+    "downloaded": true,
+    "note": "2026-09-06下載：datasheet/ 內 (1) IRF5305S_International-Rectifier_PD-95957.pdf = 核心FET官方datasheet(IR PD-95957, 2005)；(2) HW-548_product-sheet_mantech.pdf = 模組賣場產品頁(有silk標示OUT+/OUT-/DC+/DC-/IRF5305S/PC817，兩條trigger極性說明，但無電路圖)；(3) F5305S-VB_vbsemi_equivalent-part.pdf = VBsemi同名等效P-ch -60V料(非板上實際晶片，僅供對照)。多方搜尋後確認：HW-548這類clone模組沒有公開的電路圖/schematic，要靠實物reverse engineer。模組silk寫Low-Side Switch但P-ch拓樸存疑，一律以逆推線路為主。"
   },
   "drivers": {
     "micropython": null,
@@ -39,5 +39,5 @@
     "notes": "2026-08-13: GPIO trigger訊號smoke test通過(GP6/GP7各接一顆，24V負載電源未開情況下確認訊號送達)，PWM調功率+24V實際負載驅動尚未驗證，故仍列pending"
   },
   "added": "2026-08-13",
-  "updated": "2026-08-13"
+  "updated": "2026-09-06"
 }
